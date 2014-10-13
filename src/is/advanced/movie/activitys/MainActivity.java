@@ -22,36 +22,10 @@ public class MainActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.master2);
 
-
-        if((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) ==
-                Configuration.SCREENLAYOUT_SIZE_LARGE) {
-            useMethodOne = true;
-        }
-
-
-        setContentView( (useMethodOne) ? R.layout.master : R.layout.master2);
-
-        if ( useMethodOne ) {
-            if (findViewById(R.id.fragment_container) != null) {
-
-                if (savedInstanceState != null) {
-                    return;
-                }
-
-                MasterFragment firstFragment = new MasterFragment();
-                firstFragment.setArguments(getIntent().getExtras());
-
-                FragmentManager fragmentManager = getFragmentManager();
-
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                fragmentTransaction.add(R.id.fragment_container, firstFragment);
-                fragmentTransaction.commit();
-
-            }
-        }
     }
+
 
     @Override
     public void onArticleSelected(int position) {
@@ -60,25 +34,11 @@ public class MainActivity extends Activity
 
         if (detailFragment != null) {
             detailFragment.updateArticleView(position);
-        } else {
-            if ( useMethodOne ) {
-                detailFragment = new DetailFragment();
-                Bundle args = new Bundle();
-                args.putInt(DetailFragment.ARG_POSITION, position);
-                detailFragment.setArguments(args);
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, detailFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-            }
-            else {
-                Intent intent = new Intent(this, DetailActivity.class);
-                intent.putExtra("POS", position);
-                startActivity(intent);
-            }
+        }
+        else{
+            Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtra("POS", position);
+            startActivity(intent);
         }
     }
-
-
 }
