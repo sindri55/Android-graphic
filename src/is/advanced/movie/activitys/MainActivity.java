@@ -13,9 +13,12 @@ import is.advanced.movie.R;
 import is.advanced.movie.fragments.DetailFragment;
 import is.advanced.movie.fragments.FilterFragment;
 import is.advanced.movie.fragments.MasterFragment;
+import is.advanced.movie.models.Global;
 
 public class MainActivity extends Activity
     implements SeekBar.OnSeekBarChangeListener{
+
+    private Global mGlobals = Global.getInstance();
 
     /** Called when the activity is first created. */
     @Override
