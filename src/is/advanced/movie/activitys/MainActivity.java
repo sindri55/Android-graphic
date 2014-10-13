@@ -7,12 +7,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.SeekBar;
+import android.widget.Toast;
 import is.advanced.movie.R;
 import is.advanced.movie.fragments.DetailFragment;
+import is.advanced.movie.fragments.FilterFragment;
 import is.advanced.movie.fragments.MasterFragment;
 
 public class MainActivity extends Activity
-    implements MasterFragment.OnHeadlineSelectedListener{
+    implements SeekBar.OnSeekBarChangeListener{
 
     /** Called when the activity is first created. */
     @Override
@@ -21,19 +24,38 @@ public class MainActivity extends Activity
         setContentView(R.layout.master2);
     }
 
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        Context context = getApplicationContext();
+        CharSequence text = "Hello toast!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
 
     @Override
-    public void onArticleSelected(int position) {
-        DetailFragment detailFragment = (DetailFragment)
-                getFragmentManager().findFragmentById(R.id.article_fragment);
+    public void onStartTrackingTouch(SeekBar seekBar) {
 
-        if (detailFragment != null) {
-            detailFragment.updateArticleView(position);
-        }
-        else{
-            Intent intent = new Intent(this, DetailActivity.class);
-            intent.putExtra("POS", position);
-            startActivity(intent);
-        }
     }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
+
+//    @Override
+//    public void onArticleSelected(int position) {
+//        DetailFragment detailFragment = (DetailFragment)
+//                getFragmentManager().findFragmentById(R.id.article_fragment);
+//
+//        if (detailFragment != null) {
+//            detailFragment.updateArticleView(position);
+//        }
+//        else{
+//            Intent intent = new Intent(this, DetailActivity.class);
+//            intent.putExtra("POS", position);
+//            startActivity(intent);
+//        }
+//    }
 }
