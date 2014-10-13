@@ -4,13 +4,14 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical" >
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
               android:id="@+id/article"
               android:layout_width="match_parent"
               android:layout_height="30dp"
               android:padding="18dp"
               android:textSize="20sp" />
-    <SeekBar
+    <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="bla bla bla"/>
 </LinearLayout>
