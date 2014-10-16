@@ -3,9 +3,7 @@ package is.advanced.movie.models;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Hannes on 13.10.2014.
- */
+
 public class Movie {
     private String title;
     private String released;
@@ -18,13 +16,13 @@ public class Movie {
 
     }
 
-    public Movie(String title, String released, String restricted, String imdb, String image) {
+    public Movie(String title, String released, String restricted, String imdb, String image,List<Showtime> showtimeList) {
         this.title = title;
         this.released = released;
         this.restricted = restricted;
         this.imdb = imdb;
         this.image = image;
-        this.showtimeList = new ArrayList<Showtime>();
+        this.showtimeList = showtimeList;
     }
 
     public String getTitle() {
@@ -42,7 +40,6 @@ public class Movie {
     public String getImdb() {
         return imdb;
     }
-
     public String getImage() {
         return image;
     }
@@ -53,5 +50,17 @@ public class Movie {
 
     public void setShowtimeList(List<Showtime> showtimeList) {
         this.showtimeList = showtimeList;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "showtimeList=" + showtimeList +
+                ", image='" + image + '\'' +
+                ", imdb='" + imdb + '\'' +
+                ", restricted='" + restricted + '\'' +
+                ", released='" + released + '\'' +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

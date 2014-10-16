@@ -1,16 +1,15 @@
 package is.advanced.movie.models;
+import java.util.List;
 
-/**
- * Created by Hannes on 13.10.2014.
- */
 public class Showtime {
+
     private String theatre;
-    private String[] schedule;
+    private List<String> schedule;
 
     public Showtime() {
     }
 
-    public Showtime(String theatre, String[] schedule) {
+    public Showtime(String theatre, List<String> schedule) {
         this.theatre = theatre;
         this.schedule = schedule;
     }
@@ -19,7 +18,16 @@ public class Showtime {
         return theatre;
     }
 
-    public String[] getSchedule() {
+    public List<String> getSchedule() {
         return schedule;
     }
+
+    @Override
+    public String toString() {
+        return "Showtime{" +
+                "theatre='" + theatre + '\'' +
+                ", schedule=" + schedule +
+                '}';
+    }
 }
+
