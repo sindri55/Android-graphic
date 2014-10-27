@@ -13,10 +13,10 @@ public class Movie {
     private List<Showtime> showtimeList;
 
     public Movie(){
-
     }
 
     public Movie(String title, String released, String restricted, String imdb, String image,List<Showtime> showtimeList) {
+
         this.title = title;
         this.released = released;
         this.restricted = restricted;
@@ -28,22 +28,18 @@ public class Movie {
     public String getTitle() {
         return title;
     }
-
     public String getReleased() {
         return released;
     }
-
     public String getRestricted() {
         return restricted;
     }
-
     public String getImdb() {
         return imdb;
     }
     public String getImage() {
         return image;
     }
-
     public List<Showtime> getShowtimeList() {
         return showtimeList;
     }
@@ -51,7 +47,6 @@ public class Movie {
     public void setShowtimeList(List<Showtime> showtimeList) {
         this.showtimeList = showtimeList;
     }
-
     @Override
     public String toString() {
         return "Movie{" +

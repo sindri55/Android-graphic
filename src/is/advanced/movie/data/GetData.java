@@ -5,17 +5,29 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
+
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
+import is.advanced.movie.activitys.MoviesActivity;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 import is.advanced.movie.models.Showtime;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class GetData extends AsyncTask<String, String, String> {
+public class GetData  extends AsyncTask<String, String, String> {
 
     public List<Movie> movieList = new ArrayList<Movie>();
 
+    Context context;
+    Handler handler;
+
+    public GetData(Context c,Handler h){
+       this.context = c;
+       this.handler = h;
+    }
     @Override
     protected String doInBackground(String... uri) {
 
@@ -40,6 +52,7 @@ public class GetData extends AsyncTask<String, String, String> {
         catch (Exception e){
             System.out.println("Could not get data ");
         }
+
         return response.toString();
     }
 
@@ -93,7 +106,10 @@ public class GetData extends AsyncTask<String, String, String> {
             System.out.println("Error reading json");
         }
 
+        for(Movie m : movieList){
+            System.out.println(m.getTitle());
+        }
         Global.getInstance().setMovieList(movieList);
-
+        handler.sendEmptyMessage(42);
     }
-}
+ }

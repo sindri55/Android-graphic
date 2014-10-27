@@ -7,6 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.Toast;
 import is.advanced.movie.R;
@@ -24,28 +28,43 @@ public class MainActivity extends Activity
 
     private Global mGlobals = Global.getInstance();
 
-
+    List<Movie> l = new ArrayList<Movie>();
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.master2);
+        setContentView(R.layout.start);
 
-        new GetData().execute("http://apis.is/cinema");
+        View mContentView;
+        View mLoadingView;
+        int mShortAnimationDuration;
 
-        // all the data is in the models but I have
-        // yet to find a way to let the activitys know the async task
-        // is finished
 
-/*        List<Movie> l = new ArrayList<Movie>();
-        l = mGlobals.getMovieList();
+        mContentView = findViewById(R.id.content);
+        mLoadingView = findViewById(R.id.loading_spinner);
 
-        System.out.println(l.size() + "**************************************");
+        // Initially hide the content view.
+        mContentView.setVisibility(View.GONE);
 
-        for(Movie m : l){
-            System.out.println(m.getTitle() +"**********");
-        } */
+        // Retrieve and cache the system's default "short" animation time.
+        mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
+
+
+
+        final Context c = this;
+        Handler h = new Handler(){
+            @Override
+            public void handleMessage(Message m){
+
+                Intent i = new Intent(c,MoviesActivity.class);
+                startActivity(i);
+                finish();
+
+            }
+        };
+
+        new GetData(c,h).execute("http://apis.is/cinema");
     }
 
     @Override
@@ -56,6 +75,7 @@ public class MainActivity extends Activity
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+
     }
 
     @Override
