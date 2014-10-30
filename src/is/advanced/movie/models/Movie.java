@@ -1,5 +1,7 @@
 package is.advanced.movie.models;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +11,13 @@ public class Movie {
     private String released;
     private String restricted;
     private String imdb;
-    private String image;
+    private Bitmap image;
     private List<Showtime> showtimeList;
 
     public Movie(){
     }
 
-    public Movie(String title, String released, String restricted, String imdb, String image,List<Showtime> showtimeList) {
+    public Movie(String title, String released, String restricted, String imdb, Bitmap image,List<Showtime> showtimeList) {
 
         this.title = title;
         this.released = released;
@@ -23,6 +25,7 @@ public class Movie {
         this.imdb = imdb;
         this.image = image;
         this.showtimeList = showtimeList;
+
     }
 
     public String getTitle() {
@@ -37,7 +40,7 @@ public class Movie {
     public String getImdb() {
         return imdb;
     }
-    public String getImage() {
+    public Bitmap getImage() {
         return image;
     }
     public List<Showtime> getShowtimeList() {

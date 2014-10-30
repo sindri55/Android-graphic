@@ -50,6 +50,7 @@ public class MainActivity extends Activity
         };
 
         new GetData(c,h).execute("http://apis.is/cinema");
+
     }
 
     @Override

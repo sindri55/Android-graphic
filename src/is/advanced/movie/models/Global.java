@@ -1,5 +1,7 @@
 package is.advanced.movie.models;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.List;
 

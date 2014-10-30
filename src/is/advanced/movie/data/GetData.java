@@ -8,6 +8,8 @@ import java.util.*;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Handler;
 import is.advanced.movie.activitys.MoviesActivity;
@@ -20,7 +22,7 @@ import org.json.JSONObject;
 public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
     public List<Movie> movieList = new ArrayList<Movie>();
-
+    public int temp = 0;
     Context context;
     Handler handler;
 
@@ -91,7 +93,15 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
                 }
 
-                Movie movie = new Movie(title,released,restricted,imdb,image,showtimeList);
+
+
+
+
+
+                URL u = new URL(image);
+                Bitmap bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
+
+                Movie movie = new Movie(title,released,restricted,imdb,bmp,showtimeList);
                 movieList.add(movie);
 
             }
@@ -107,7 +117,7 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
     protected void onPostExecute(List<Movie> result) {
         super.onPostExecute(result);
 
-        Global.getInstance().setMovieList(movieList);
+        Global.getInstance().setMovieList(result);
         handler.sendEmptyMessage(42);
     }
  }
