@@ -35,22 +35,6 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
 
-        View mContentView;
-        View mLoadingView;
-        int mShortAnimationDuration;
-
-
-        mContentView = findViewById(R.id.content);
-        mLoadingView = findViewById(R.id.loading_spinner);
-
-        // Initially hide the content view.
-        mContentView.setVisibility(View.GONE);
-
-        // Retrieve and cache the system's default "short" animation time.
-        mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
-
-
 
         final Context c = this;
         Handler h = new Handler(){
@@ -59,6 +43,7 @@ public class MainActivity extends Activity
 
                 Intent i = new Intent(c,MoviesActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
 
             }
