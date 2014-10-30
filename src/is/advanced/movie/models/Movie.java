@@ -11,13 +11,13 @@ public class Movie {
     private String released;
     private String restricted;
     private String imdb;
-    private Bitmap image;
+    private String image;
     private List<Showtime> showtimeList;
 
     public Movie(){
     }
 
-    public Movie(String title, String released, String restricted, String imdb, Bitmap image,List<Showtime> showtimeList) {
+    public Movie(String title, String released, String restricted, String imdb, String image,List<Showtime> showtimeList) {
 
         this.title = title;
         this.released = released;
@@ -40,7 +40,7 @@ public class Movie {
     public String getImdb() {
         return imdb;
     }
-    public Bitmap getImage() {
+    public String getImage() {
         return image;
     }
     public List<Showtime> getShowtimeList() {

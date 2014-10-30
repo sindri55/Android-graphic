@@ -1,7 +1,6 @@
 package is.advanced.movie.data;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
@@ -16,6 +15,13 @@ import is.advanced.movie.activitys.MoviesActivity;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 import is.advanced.movie.models.Showtime;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -33,11 +39,33 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
     @Override
     protected List<Movie> doInBackground(String... uri) {
 
-        String inputLine;
-        StringBuilder response = new StringBuilder();
-        try{
+      /*  String inputLine;
+        StringBuilder response = new StringBuilder(); */
 
-            URL obj = new URL(uri[0]);
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpResponse response;
+            String responseString = null;
+
+            try {
+                response = httpclient.execute(new HttpGet(uri[0]));
+                StatusLine statusLine = response.getStatusLine();
+                if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+                    ByteArrayOutputStream out = new ByteArrayOutputStream();
+                    response.getEntity().writeTo(out);
+                    out.close();
+                    responseString = out.toString();
+                } else{
+                    //Closes the connection.
+                    response.getEntity().getContent().close();
+                    throw new IOException(statusLine.getReasonPhrase());
+                }
+            } catch (ClientProtocolException e) {
+                //TODO Handle problems..
+            } catch (IOException e) {
+                //TODO Handle problems..
+            }
+
+        /*    URL obj = new URL(uri[0]);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
 
@@ -53,11 +81,11 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
         }
         catch (Exception e){
             System.out.println("Could not get data ");
-        }
+        } */
 
         try{
 
-            JSONObject json = new JSONObject(response.toString());
+            JSONObject json = new JSONObject(responseString);
             JSONArray j = json.getJSONArray("results");
 
             for(int i = 0; i < j.length(); i++)
@@ -95,13 +123,7 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
 
 
-
-
-
-                URL u = new URL(image);
-                Bitmap bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
-
-                Movie movie = new Movie(title,released,restricted,imdb,bmp,showtimeList);
+                Movie movie = new Movie(title,released,restricted,imdb,image,showtimeList);
                 movieList.add(movie);
 
             }
@@ -116,7 +138,9 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
     @Override
     protected void onPostExecute(List<Movie> result) {
         super.onPostExecute(result);
-
+        for(Movie m: result){
+            System.out.println(m.getTitle());
+        }
         Global.getInstance().setMovieList(result);
         handler.sendEmptyMessage(42);
     }
