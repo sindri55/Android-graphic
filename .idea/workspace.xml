@@ -31,27 +31,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: is.advanced.movie" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65eb71c4-50a5-488a-913c-fbd14e8279fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_settings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_settings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/fade_in.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/fade_out.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/is/advanced/movie/data/getImages.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/is/advanced/movie/activitys/FlashActivity.java" afterPath="$PROJECT_DIR$/src/is/advanced/movie/activitys/FlashActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/is/advanced/movie/data/GetData.java" afterPath="$PROJECT_DIR$/src/is/advanced/movie/data/GetData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/is/advanced/movie/models/Global.java" afterPath="$PROJECT_DIR$/src/is/advanced/movie/models/Global.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/is/advanced/movie/models/Movie.java" afterPath="$PROJECT_DIR$/src/is/advanced/movie/models/Movie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/is/advanced/movie/activitys/MovieAdapter.java" afterPath="$PROJECT_DIR$/src/is/advanced/movie/activitys/MovieAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/is/advanced/movie/activitys/TheatersAdapter.java" afterPath="$PROJECT_DIR$/src/is/advanced/movie/activitys/TheatersAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/detail.xml" afterPath="$PROJECT_DIR$/res/layout/detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/grid_element.xml" afterPath="$PROJECT_DIR$/res/layout/grid_element.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/start.xml" afterPath="$PROJECT_DIR$/res/layout/start.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/theaters.xml" afterPath="$PROJECT_DIR$/res/layout/theaters.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="65eb71c4-50a5-488a-913c-fbd14e8279fe" name="Default" comment="" />
     <ignored path="Movie.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -172,8 +152,8 @@
       <file leaf-file-name="grid_element.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/layout/grid_element.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78289473" vertical-offset="93" max-vertical-offset="765">
-              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.68421054" vertical-offset="93" max-vertical-offset="765">
+              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -198,6 +178,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="true" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Push.Settings">
+    <option name="myUpdateMethod" value="REBASE" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -539,7 +522,11 @@
       <created>1414774792041</created>
       <updated>1414774792042</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="midlevel">
+      <created>1414781293796</created>
+      <updated>1414781293796</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -547,7 +534,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -568,7 +555,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32737276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -601,7 +588,8 @@
     <MESSAGE value="Added model classes" />
     <MESSAGE value="lowlevel of menu" />
     <MESSAGE value="lowlevel" />
-    <option name="LAST_COMMIT_MESSAGE" value="lowlevel" />
+    <MESSAGE value="midlevel" />
+    <option name="LAST_COMMIT_MESSAGE" value="midlevel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1049,8 +1037,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/grid_element.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78289473" vertical-offset="93" max-vertical-offset="765">
-          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.68421054" vertical-offset="93" max-vertical-offset="765">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
           <folding />
         </state>
       </provider>
