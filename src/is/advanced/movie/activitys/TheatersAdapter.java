@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Arrays;
@@ -37,6 +38,7 @@ public class TheatersAdapter extends ArrayAdapter<String> {
 
             TextView textView = (TextView) view.findViewById(R.id.theatersId1);
             textView.setText(Arrays.toString(theaters[position].getBytes()));
+
 
         }else {
             view = (View) convertView;

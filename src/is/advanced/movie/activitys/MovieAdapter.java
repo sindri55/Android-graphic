@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -55,13 +56,17 @@ public class MovieAdapter extends BaseAdapter {
 
 
 
-            TextView textView = (TextView) gridView.findViewById(R.id.movieTitleId);
-            //ImageView imageView = (ImageView) gridView.findViewById(R.id.movieImageId);
+            TextView title = (TextView) gridView.findViewById(R.id.movieTitleId);
+            ImageView imageView = (ImageView) gridView.findViewById(R.id.movieImageId);
+            TextView imdb = (TextView) gridView.findViewById(R.id.imdbId);
+
+            String imdb_[] = movieList.get(position).getImdb().split("\\s");
 
 
+            title.setText(movieList.get(position).getTitle());
+            imageView.setImageBitmap((movieList.get(position).getImage()));
+            imdb.setText(imdb_[0]);
 
-            textView.setText(movieList.get(position).getTitle());
-            //imageView.setImageAlpha(Integer.parseInt(movieList.get(position).getImage()));
 
         }else {
             gridView = convertView;
