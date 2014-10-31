@@ -121,7 +121,6 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
                 }
 
-
                 URL u = new URL(image);
                 Bitmap bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
 

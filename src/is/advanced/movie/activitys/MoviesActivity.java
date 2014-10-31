@@ -1,12 +1,18 @@
 package is.advanced.movie.activitys;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import is.advanced.movie.R;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
@@ -35,7 +41,39 @@ public class MoviesActivity extends Activity {
         ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(this,
                 android.R.layout.simple_list_item_1, movieList);
         listView1.setAdapter(adapter);*/
-
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.movies_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        Context context = getApplicationContext();
+        switch (item.getItemId()) {
+            case R.id.action_search:
+
+                CharSequence text = "Hello search!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                return true;
+            case R.id.action_settings:
+
+                CharSequence t = "Hello settings!";
+                int d = Toast.LENGTH_SHORT;
+
+                Toast to = Toast.makeText(context, t, d);
+                to.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
