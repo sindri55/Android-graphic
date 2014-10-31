@@ -122,8 +122,10 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 }
 
 
+                URL u = new URL(image);
+                Bitmap bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
 
-                Movie movie = new Movie(title,released,restricted,imdb,image,showtimeList);
+                Movie movie = new Movie(title,released,restricted,imdb,bmp,showtimeList);
                 movieList.add(movie);
 
             }

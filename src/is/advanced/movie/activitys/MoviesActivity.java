@@ -19,26 +19,22 @@ import java.net.URL;
 import java.util.*;
 public class MoviesActivity extends Activity {
 
-    public Bitmap image;
+    public Bitmap b;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movies);
 
+        ImageView v = (ImageView) findViewById(R.id.movie);
 
+       Movie m = Global.getInstance().getMovieList().get(0);
+       v.setImageBitmap(m.getImage());
 
-
-
-
-       ListView listView1 = (ListView) findViewById(R.id.moveiList);
-
+        /*ListView listView1 = (ListView) findViewById(R.id.moveiList);
         List<Movie> movieList = Global.getInstance().getMovieList();
-
         ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(this,
                 android.R.layout.simple_list_item_1, movieList);
-
-        listView1.setAdapter(adapter);
-
+        listView1.setAdapter(adapter);*/
 
     }
 
