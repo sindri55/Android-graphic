@@ -7,10 +7,9 @@ import java.net.URL;
 import java.util.*;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
-import is.advanced.movie.activitys.MoviesActivity;
+
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 import is.advanced.movie.models.Showtime;

@@ -1,6 +1,5 @@
 package is.advanced.movie.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
