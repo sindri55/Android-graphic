@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <ImageView android:id="@+id/menuBackground"
-               android:src="@drawable/movietheater"
-               android:adjustViewBounds="true"
-               android:gravity="center_vertical"
-               android:scaleType="fitXY"
-               android:layout_width="fill_parent"
-               android:layout_height="fill_parent"
-               android:layout_x="0dp"
-               android:layout_y="0dp" />
+        android:src="@drawable/movietheater"
+        android:adjustViewBounds="true"
+        android:gravity="center_vertical"
+        android:scaleType="fitXY"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_x="0dp"
+        android:layout_y="0dp" />
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            />
 
     </ScrollView>
 
     <ProgressBar android:id="@+id/loading_spinner"
-                 style="?android:progressBarStyleSmall"
+        style="?android:progressBarStyleSmall"
 
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 
 </FrameLayout>

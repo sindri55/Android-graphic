@@ -11,7 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Handler;
-import is.advanced.movie.activitys.MoviesActivity;
+import is.advanced.movie.activitys.ErrorActivity;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 import is.advanced.movie.models.Showtime;
@@ -31,57 +31,37 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
     public int temp = 0;
     Context context;
     Handler handler;
-
+    public long startTime = System.nanoTime();
+    public long endTime = System.nanoTime();
     public GetData(Context c,Handler h){
-       this.context = c;
-       this.handler = h;
+        this.context = c;
+        this.handler = h;
     }
     @Override
     protected List<Movie> doInBackground(String... uri) {
 
-      /*  String inputLine;
-        StringBuilder response = new StringBuilder(); */
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpResponse response;
+        String responseString = null;
 
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpResponse response;
-            String responseString = null;
-
-            try {
-                response = httpclient.execute(new HttpGet(uri[0]));
-                StatusLine statusLine = response.getStatusLine();
-                if(statusLine.getStatusCode() == HttpStatus.SC_OK){
-                    ByteArrayOutputStream out = new ByteArrayOutputStream();
-                    response.getEntity().writeTo(out);
-                    out.close();
-                    responseString = out.toString();
-                } else{
-                    //Closes the connection.
-                    response.getEntity().getContent().close();
-                    throw new IOException(statusLine.getReasonPhrase());
-                }
-            } catch (ClientProtocolException e) {
-                //TODO Handle problems..
-            } catch (IOException e) {
-                //TODO Handle problems..
+        try {
+            response = httpclient.execute(new HttpGet(uri[0]));
+            StatusLine statusLine = response.getStatusLine();
+            if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                response.getEntity().writeTo(out);
+                out.close();
+                responseString = out.toString();
+            } else{
+                //Closes the connection.
+                response.getEntity().getContent().close();
+                throw new IOException(statusLine.getReasonPhrase());
             }
-
-        /*    URL obj = new URL(uri[0]);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            con.setRequestMethod("GET");
-
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
-
-            while ((inputLine = in.readLine()) != null)
-            {
-                response.append(inputLine);
-            }
-            in.close();
-
+        } catch (ClientProtocolException e) {
+            //TODO Handle problems..
+        } catch (IOException e) {
+            //TODO Handle problems..
         }
-        catch (Exception e){
-            System.out.println("Could not get data ");
-        } */
 
         try{
 
@@ -127,22 +107,27 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 Movie movie = new Movie(title,released,restricted,imdb,bmp,showtimeList);
                 movieList.add(movie);
 
-            }
+                endTime = System.nanoTime();
 
+                // if it takes more than 30 seconds to get the data
+                // we return null, the main thread will render the error view.
+                if(((endTime - startTime) /1000000) >= 10000 ){
+                    return null;
+                }
+            }
         }
         catch(Exception e){
             System.out.println("Error reading Json");
         }
+
         return movieList;
     }
 
     @Override
     protected void onPostExecute(List<Movie> result) {
         super.onPostExecute(result);
-        for(Movie m: result){
-            System.out.println(m.getTitle());
-        }
+
         Global.getInstance().setMovieList(result);
         handler.sendEmptyMessage(42);
     }
- }
+}
