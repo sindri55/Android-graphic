@@ -36,16 +36,13 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
     long startTime = System.nanoTime();
 
-
     public GetData(Context c,Handler h){
         this.context = c;
         this.handler = h;
     }
 
-
     @Override
     protected List<Movie> doInBackground(String... uri) {
-
 
         HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
@@ -114,7 +111,7 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 long elapsedTime = (System.nanoTime() - startTime) / 100000000;
                 System.out.println(elapsedTime + "'''''''''''''''''''''''''''''");
 
-                if(elapsedTime >= 15){
+                if(elapsedTime >= 100){
                    i = j.length();
                     movieList = null;
                }

@@ -1,5 +1,6 @@
 package is.advanced.movie.activitys;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -27,6 +28,9 @@ import is.advanced.movie.models.Movie;
 
 public class FlashActivity extends Activity
         implements SeekBar.OnSeekBarChangeListener {
+
+
+
 
     private Global mGlobals = Global.getInstance();
 
