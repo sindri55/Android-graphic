@@ -22,23 +22,30 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
     public List<Movie> movieList = new ArrayList<Movie>();
-    public int temp = 0;
     Context context;
     Handler handler;
-    public long startTime = System.nanoTime();
-    public long endTime = System.nanoTime();
+
+    long startTime = System.nanoTime();
+
+
     public GetData(Context c,Handler h){
         this.context = c;
         this.handler = h;
     }
+
+
     @Override
     protected List<Movie> doInBackground(String... uri) {
+
 
         HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
@@ -58,9 +65,9 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 throw new IOException(statusLine.getReasonPhrase());
             }
         } catch (ClientProtocolException e) {
-            //TODO Handle problems..
+
         } catch (IOException e) {
-            //TODO Handle problems..
+
         }
 
         try{
@@ -104,23 +111,25 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 URL u = new URL(image);
                 Bitmap bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
 
-                Movie movie = new Movie(title,released,restricted,imdb,bmp,showtimeList);
-                movieList.add(movie);
+                long elapsedTime = (System.nanoTime() - startTime) / 100000000;
+                System.out.println(elapsedTime + "'''''''''''''''''''''''''''''");
 
-                endTime = System.nanoTime();
-
-                // if it takes more than 30 seconds to get the data
-                // we return null, the main thread will render the error view.
-                if(((endTime - startTime) /1000000) >= 10000 ){
-                    return null;
-                }
+                if(elapsedTime >= 15){
+                   i = j.length();
+                    movieList = null;
+               }
+                else {
+                    Movie movie = new Movie(title, released, restricted, imdb, bmp, showtimeList);
+                    movieList.add(movie);
+               }
             }
         }
         catch(Exception e){
             System.out.println("Error reading Json");
         }
 
-        return movieList;
+            return movieList;
+
     }
 
     @Override

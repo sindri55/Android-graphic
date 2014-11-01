@@ -6,6 +6,8 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -29,12 +31,18 @@ public class FlashActivity extends Activity
     private Global mGlobals = Global.getInstance();
 
     List<Movie> l = new ArrayList<Movie>();
-    /** Called when the activity is first created. */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
 
+        if(!isNetworkAvailable())
+        {
+            Intent i = new Intent(getApplicationContext(),ErrorActivity.class);
+            startActivity(i);
+            finish();
+        }
 
         final Context c = this;
         Handler h = new Handler(){
@@ -83,7 +91,12 @@ public class FlashActivity extends Activity
 
     }
 
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
 //    @Override
 //    public void onArticleSelected(int position) {
