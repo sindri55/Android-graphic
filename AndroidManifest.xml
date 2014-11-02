@@ -21,7 +21,6 @@
         <activity android:name=".activitys.MainActivity"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.Holo"
-
                 />
         <activity android:name=".activitys.ErrorActivity"/>
     </application>

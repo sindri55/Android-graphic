@@ -11,9 +11,6 @@ import java.util.Arrays;
 
 import is.advanced.movie.R;
 
-/**
- * Created by Sindri on 30/10/14.
- */
 public class TheatersAdapter extends ArrayAdapter<String> {
 
     Context context;
@@ -29,7 +26,6 @@ public class TheatersAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         View view;
 
         if (convertView == null) {
@@ -39,11 +35,9 @@ public class TheatersAdapter extends ArrayAdapter<String> {
             TextView textView = (TextView) view.findViewById(R.id.theatersId1);
             textView.setText(Arrays.toString(theaters[position].getBytes()));
 
-
         }else {
             view = (View) convertView;
         }
         return view;
     }
-
 }

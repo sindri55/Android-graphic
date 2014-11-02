@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 
@@ -14,9 +15,6 @@ import java.util.List;
 import is.advanced.movie.R;
 import is.advanced.movie.models.Movie;
 
-/*
- * Created by Sindri on 14/10/14.
- */
 public class MovieAdapter extends BaseAdapter {
 
     LayoutInflater inflater;
@@ -48,13 +46,11 @@ public class MovieAdapter extends BaseAdapter {
 
         View gridView;
 
-        if (convertView == null) {
+        //if (convertView == null) {
 
 
             LayoutInflater i = LayoutInflater.from(parent.getContext());
             gridView = i.inflate(R.layout.grid_element,null);
-
-
 
             TextView title = (TextView) gridView.findViewById(R.id.movieTitleId);
             ImageView imageView = (ImageView) gridView.findViewById(R.id.movieImageId);
@@ -68,9 +64,9 @@ public class MovieAdapter extends BaseAdapter {
             imdb.setText(imdb_[0]);
 
 
-        }else {
-            gridView = convertView;
-        }
+//        }else {
+//            gridView =convertView;
+//        }
         return gridView;
     }
 }
