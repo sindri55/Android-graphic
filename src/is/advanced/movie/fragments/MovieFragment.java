@@ -33,8 +33,6 @@ public class MovieFragment extends Fragment{
         GridView gridView = (GridView) view.findViewById(R.id.gridview);
         gridView.setAdapter(new MovieAdapter(getActivity(), movieList));
 
-
-
 /*        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView parent, View v, int position, long id) {
