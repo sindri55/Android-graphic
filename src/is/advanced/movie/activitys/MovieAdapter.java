@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 
@@ -14,9 +15,6 @@ import java.util.List;
 import is.advanced.movie.R;
 import is.advanced.movie.models.Movie;
 
-/*
- * Created by Sindri on 14/10/14.
- */
 public class MovieAdapter extends BaseAdapter {
 
     LayoutInflater inflater;
@@ -34,17 +32,14 @@ public class MovieAdapter extends BaseAdapter {
 
     }
 
-    @Override
     public Object getItem(int i) {
-        return i;
+        return null;
     }
 
-    @Override
     public long getItemId(int i) {
-        return i;
+        return 0;
     }
 
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View gridView;

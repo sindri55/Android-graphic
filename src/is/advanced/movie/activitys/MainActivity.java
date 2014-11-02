@@ -1,19 +1,14 @@
 package is.advanced.movie.activitys;
 
 
-import android.content.Intent;
+
+
 import android.graphics.Color;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +30,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         setContentView(R.layout.menu);
     }
 
-    @Override
+
     public void onClick(View view) {
 
 

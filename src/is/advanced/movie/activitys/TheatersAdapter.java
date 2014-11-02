@@ -17,9 +17,6 @@ import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 import is.advanced.movie.models.Showtime;
 
-/**
- * Created by Sindri on 30/10/14.
- */
 public class TheatersAdapter extends ArrayAdapter<String> {
 
     Context context;
@@ -53,7 +50,6 @@ public class TheatersAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         View view;
 
             view = new View(context);
@@ -61,7 +57,7 @@ public class TheatersAdapter extends ArrayAdapter<String> {
             TextView textView = (TextView) view.findViewById(R.id.theatersId1);
             textView.setText(Arrays.toString(theaters[position].getBytes()));
 
+
         return view;
     }
-
 }
