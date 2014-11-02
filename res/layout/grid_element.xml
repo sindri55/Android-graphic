@@ -12,10 +12,12 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:id="@+id/poster">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/movieImageId"/>
+                android:id="@+id/movieImageId"
+                />
 
 
         </RelativeLayout>

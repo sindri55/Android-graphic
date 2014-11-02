@@ -31,6 +31,7 @@ public class MovieAdapter extends BaseAdapter {
 
     public int getCount(){
         return movieList.size();
+
     }
 
     @Override
@@ -48,13 +49,9 @@ public class MovieAdapter extends BaseAdapter {
 
         View gridView;
 
-        if (convertView == null) {
-
 
             LayoutInflater i = LayoutInflater.from(parent.getContext());
             gridView = i.inflate(R.layout.grid_element,null);
-
-
 
             TextView title = (TextView) gridView.findViewById(R.id.movieTitleId);
             ImageView imageView = (ImageView) gridView.findViewById(R.id.movieImageId);
@@ -62,15 +59,10 @@ public class MovieAdapter extends BaseAdapter {
 
             String imdb_[] = movieList.get(position).getImdb().split("\\s");
 
-
             title.setText(movieList.get(position).getTitle());
             imageView.setImageBitmap((movieList.get(position).getImage()));
             imdb.setText(imdb_[0]);
 
-
-        }else {
-            gridView = convertView;
-        }
         return gridView;
     }
 }

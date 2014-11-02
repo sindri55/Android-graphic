@@ -2,11 +2,14 @@ package is.advanced.movie.fragments;
 
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -30,6 +33,8 @@ public class MovieFragment extends Fragment{
         GridView gridView = (GridView) view.findViewById(R.id.gridview);
         gridView.setAdapter(new MovieAdapter(getActivity(), movieList));
 
+
+
 /*        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -41,8 +46,6 @@ public class MovieFragment extends Fragment{
         return view;
     }
 
-
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -50,5 +53,4 @@ public class MovieFragment extends Fragment{
         // Save the current article selection in case we need to recreate the fragment
         outState.putInt(ARG_POSITION, mCurrentPosition);
     }
-
 }
