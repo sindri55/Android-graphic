@@ -9,8 +9,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
+import is.advanced.movie.R;
+import is.advanced.movie.activitys.ErrorActivity;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 import is.advanced.movie.models.Showtime;
@@ -21,25 +24,27 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
     public List<Movie> movieList = new ArrayList<Movie>();
-    public int temp = 0;
     Context context;
     Handler handler;
+    public Bitmap bmp;
+    long startTime = System.nanoTime();
 
     public GetData(Context c,Handler h){
         this.context = c;
         this.handler = h;
     }
+
     @Override
     protected List<Movie> doInBackground(String... uri) {
-
-      /*  String inputLine;
-        StringBuilder response = new StringBuilder(); */
 
         HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
@@ -59,28 +64,10 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 throw new IOException(statusLine.getReasonPhrase());
             }
         } catch (ClientProtocolException e) {
-            //TODO Handle problems..
+
         } catch (IOException e) {
-            //TODO Handle problems..
-        }
-
-        /*    URL obj = new URL(uri[0]);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            con.setRequestMethod("GET");
-
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
-
-            while ((inputLine = in.readLine()) != null)
-            {
-                response.append(inputLine);
-            }
-            in.close();
 
         }
-        catch (Exception e){
-            System.out.println("Could not get data ");
-        } */
 
         try{
 
@@ -117,30 +104,42 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
                     Showtime showtimeForMovie = new Showtime(theater,scheduleList);
                     showtimeList.add(showtimeForMovie);
-
                 }
 
-                URL u = new URL(image);
-                Bitmap bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
+                try {
 
-                Movie movie = new Movie(title,released,restricted,imdb,bmp,showtimeList);
-                movieList.add(movie);
+                    URL u = new URL(image);
+                    bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
+                    Movie movie = new Movie(title, released, restricted, imdb, bmp, showtimeList);
+                    movieList.add(movie);
 
+                }
+                catch (Exception e)
+                {
+                    System.out.println("error reading image");
+                    Bitmap icon = BitmapFactory.decodeResource(context.getResources(),R.drawable.noimage);
+                    Movie movie = new Movie(title, released, restricted, imdb, icon, showtimeList);
+                    movieList.add(movie);
+                }
+                long elapsedTime = (System.nanoTime() - startTime) / 100000000;
+
+
+                if(elapsedTime >= 100)
+                {
+                   i = j.length();
+                   movieList = null;
+                }
             }
-
         }
         catch(Exception e){
             System.out.println("Error reading Json");
         }
-        return movieList;
+            return movieList;
     }
-
     @Override
     protected void onPostExecute(List<Movie> result) {
         super.onPostExecute(result);
-        for(Movie m: result){
-            System.out.println(m.getTitle());
-        }
+
         Global.getInstance().setMovieList(result);
         handler.sendEmptyMessage(42);
     }

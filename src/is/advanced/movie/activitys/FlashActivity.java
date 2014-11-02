@@ -1,11 +1,14 @@
 package is.advanced.movie.activitys;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,25 +29,47 @@ import is.advanced.movie.models.Movie;
 public class FlashActivity extends Activity
         implements SeekBar.OnSeekBarChangeListener {
 
+
+
+
     private Global mGlobals = Global.getInstance();
 
     List<Movie> l = new ArrayList<Movie>();
-    /** Called when the activity is first created. */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
 
+        if(!isNetworkAvailable())
+        {
+            Intent i = new Intent(getApplicationContext(),ErrorActivity.class);
+            startActivity(i);
+            finish();
+        }
 
         final Context c = this;
         Handler h = new Handler(){
             @Override
             public void handleMessage(Message m){
 
-                Intent i = new Intent(c, MainActivity.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                finish();
+                if(Global.getInstance().getMovieList() == null)
+                {
+                    Intent i = new Intent(c,ErrorActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+                else
+                {
+                    for(int i = 0; i < Global.getInstance().getMovieList().size(); i++)
+                    {
+                        System.out.println("******" + Global.getInstance().getMovieList().get(i));
+                    }
+                    Intent i = new Intent(c, MainActivity.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    finish();
+                }
 
             }
         };
@@ -74,7 +99,12 @@ public class FlashActivity extends Activity
 
     }
 
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
 //    @Override
 //    public void onArticleSelected(int position) {

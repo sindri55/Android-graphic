@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@drawable/sad_keanu"
+              android:weightSum="1">
+
+    <TextView  android:layout_centerInParent="true" android:layout_width="wrap_content" android:id="@+id/textView1"
+               android:layout_height="wrap_content" android:text=" "
+            android:layout_weight="0.83"></TextView>
+    <Button android:id="@+id/reloadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Endurhlaða"
+            android:onClick="reload" android:layout_gravity="center_horizontal"
+            />
+
+</LinearLayout>

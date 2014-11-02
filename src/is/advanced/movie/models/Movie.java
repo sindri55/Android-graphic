@@ -27,7 +27,9 @@ public class Movie {
         this.showtimeList = showtimeList;
 
     }
-
+    public void setImage(Bitmap b){
+        this.image = b;
+    }
     public String getTitle() {
         return title;
     }
