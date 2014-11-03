@@ -22,6 +22,14 @@ public class Showtime {
         return schedule;
     }
 
+    public void setTheatre(String theatre) {
+        this.theatre = theatre;
+    }
+
+    public void setSchedule(List<String> schedule) {
+        this.schedule = schedule;
+    }
+
     public String[] getScheduleArray(){
         String[] arr = new String[this.schedule.size()];
         for(int i=0; i<schedule.size(); i++){

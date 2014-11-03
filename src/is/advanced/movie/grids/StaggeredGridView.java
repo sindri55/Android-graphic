@@ -1400,11 +1400,16 @@ public class StaggeredGridView extends ViewGroup {
         int nextCol = getNextColumnDown(fromPosition);
         int position = fromPosition;
 
-        while (nextCol >= 0 && mItemBottoms[nextCol] < fillTo && position < mItemCount) {
+        int failed = 0;
+        while (nextCol >= 0 && mItemBottoms[nextCol] < fillTo && position < mItemCount && failed < 5) {
 
             final View child = obtainView(position, null);
 
-            if (child == null) continue;
+            if (child == null) {
+                failed++;
+                continue;
+            }
+            failed = 0;
 
             LayoutParams lp = (LayoutParams) child.getLayoutParams();
             if (lp == null) {

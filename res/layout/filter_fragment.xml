@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/fragment_container"
+             android:layout_width="match_parent"
+             android:numColumns="2"
+             android:clickable="true"
+             android:layout_height="match_parent"
+             android:background="@color/normal_movie_name_background_color"/>

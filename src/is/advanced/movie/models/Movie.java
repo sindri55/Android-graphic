@@ -63,4 +63,20 @@ public class Movie {
                 ", title='" + title + '\'' +
                 '}';
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setReleased(String released) {
+        this.released = released;
+    }
+
+    public void setRestricted(String restricted) {
+        this.restricted = restricted;
+    }
+
+    public void setImdb(String imdb) {
+        this.imdb = imdb;
+    }
 }

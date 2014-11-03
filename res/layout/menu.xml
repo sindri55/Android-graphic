@@ -6,18 +6,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-        <fragment android:name="is.advanced.movie.fragments.TheatersFragment"
-            android:id="@+id/article_fragment"
+        <fragment android:name="is.advanced.movie.fragments.FilterFragment"
+            android:id="@+id/filter_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.15"
-            tools:layout="@layout/theaters" />
+            android:layout_weight="0.20" />
 
         <fragment android:name="is.advanced.movie.fragments.MovieFragment"
             android:id="@+id/headlines_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.85"
+            android:layout_weight="0.80"
             />
 
 </LinearLayout>
