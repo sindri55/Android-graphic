@@ -10,9 +10,9 @@ android:layout_height="match_parent">
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 
-<fragment android:name="is.advanced.movie.fragments.DetailFragment"
-    android:id="@+id/detail_fragment"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+<!--<fragment android:name="is.advanced.movie.fragments.DetailFragment"-->
+    <!--android:id="@+id/detail_fragment"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
 
 </LinearLayout>

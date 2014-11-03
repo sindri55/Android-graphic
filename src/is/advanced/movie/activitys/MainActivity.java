@@ -16,6 +16,7 @@ import java.util.List;
 import is.advanced.movie.R;
 import is.advanced.movie.adapters.MovieAdapter;
 import is.advanced.movie.fragments.MovieFragment;
+import is.advanced.movie.grids.StaggeredGridView;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 
@@ -33,8 +34,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 
     public void onClick(View view) {
-
-
         TheatersAdapter adapter = new TheatersAdapter(getApplicationContext());
         movieList.clear();
 
@@ -91,9 +90,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 textview.setBackgroundColor(Color.GRAY);
             }
 
-        GridView gridView2 = (GridView) findViewById(R.id.gridview);
-        gridView2.setEmptyView(view.findViewById(R.id.gridview));
-        gridView2.setAdapter(new MovieAdapter(this, movieList));
+        StaggeredGridView stgv = (StaggeredGridView) findViewById(R.id.stgv);
+
+        int margin = getResources().getDimensionPixelSize(R.dimen.stgv_margin);
+
+        stgv.setItemMargin(margin);
+        stgv.setPadding(margin, 0, margin, 0);
+
+        MovieAdapter movieAdapter = new MovieAdapter(this, movieList);
+        stgv.setAdapter(movieAdapter);
+
+        movieAdapter.notifyDataSetChanged();
     }
 
 }
