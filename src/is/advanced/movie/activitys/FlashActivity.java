@@ -20,7 +20,6 @@ import is.advanced.movie.R;
 import is.advanced.movie.data.GetData;
 import java.util.*;
 
-import is.advanced.movie.fragments.DetailFragment;
 import is.advanced.movie.fragments.FilterFragment;
 import is.advanced.movie.fragments.MasterFragment;
 import is.advanced.movie.models.Global;

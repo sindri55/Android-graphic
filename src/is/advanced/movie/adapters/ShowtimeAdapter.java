@@ -51,7 +51,7 @@ public class ShowtimeAdapter extends BaseAdapter {
         TextView theaterName = (TextView) showtimeView.findViewById(R.id.theater_name);
         theaterName.setText(showtimeList.get(position).getTheatre());
         //GridView showtimes = (GridView) showtimeView.findViewById(R.id.show_times);
-        //showtimes.setAdapter(new ArrayAdapter<String>(this.context, R.layout.showtimes_grid ,showtimeList.get(position).getSchedule()));
+        //showtimes.setAdapter(new ArrayAdapter<String>(this.context, R.layout.showtime_grid ,showtimeList.get(position).getSchedule()));
 
         return showtimeView;
     }

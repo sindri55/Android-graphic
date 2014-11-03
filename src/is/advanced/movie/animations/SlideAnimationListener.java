@@ -20,11 +20,6 @@ public class SlideAnimationListener implements Animation.AnimationListener {
 
     @Override
     public void onAnimationStart(Animation animation) {
-        //if(!isVisible){
-        //this.view.setVisibility(View.VISIBLE);
-        //}
-        //view.setVisibility(View.GONE);
-        // Called when the Animation starts
     }
 
     @Override
@@ -37,10 +32,6 @@ public class SlideAnimationListener implements Animation.AnimationListener {
 
         StaggeredGridView parent = (StaggeredGridView) this.view.getParent().getParent();
         parent.requestLayout();
-        //isVisible = !isVisible;
-        // Called when the Animation ended
-        // Since we are fading a View out we set the visibility
-        // to GONE once the Animation is finished
     }
 
     @Override

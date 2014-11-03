@@ -18,10 +18,17 @@ public class Showtime {
         return theatre;
     }
 
-
-
     public List<String> getSchedule() {
         return schedule;
+    }
+
+    public String[] getScheduleArray(){
+        String[] arr = new String[this.schedule.size()];
+        for(int i=0; i<schedule.size(); i++){
+            arr[i] = this.schedule.get(i);
+        }
+
+        return arr;
     }
 
     @Override

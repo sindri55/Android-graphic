@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import is.advanced.movie.R;
+import is.advanced.movie.adapters.MovieAdapter;
 import is.advanced.movie.fragments.MovieFragment;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;

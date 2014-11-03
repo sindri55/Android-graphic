@@ -6,12 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 import is.advanced.movie.R;
 import is.advanced.movie.animations.SlideAnimationListener;
+import is.advanced.movie.grids.CustomGridView;
 import is.advanced.movie.models.Movie;
 import is.advanced.movie.models.Showtime;
 
@@ -66,11 +64,24 @@ public class MovieAdapter extends BaseAdapter {
 
         Holder holder = (Holder) view.getTag();
 
-        final List<Showtime> showtimeList = mMovieList.get(position).getShowtimeList();
+        List<Showtime> showtimeList = mMovieList.get(position).getShowtimeList();
         for(int j=0; j<showtimeList.size(); j++){
-            TextView theaterName = (TextView) mInflater.inflate(R.layout.showtime_row, holder.show_times_container, false);
+            TextView theaterName = (TextView) mInflater.inflate(R.layout.showtime_theater, holder.show_times_container, false);
             theaterName.setText(showtimeList.get(j).getTheatre());
             holder.show_times_container.addView(theaterName);
+
+            CustomGridView showtimeGrid = (CustomGridView) mInflater.inflate(R.layout.showtime_grid, holder.show_times_container, false);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,
+                    R.layout.showtime_time, showtimeList.get(j).getScheduleArray());
+            showtimeGrid.setAdapter(adapter);
+//            for(int k=0; k<showtimeList.get(j).getSchedule().size(); k++){
+//                TextView showTime = (TextView) mInflater.inflate(R.layout.showtime_time, holder.show_times_container, false);
+//                showTime.setText(showtimeList.get(j).getSchedule().get(k));
+//                showtimeGrid.addView(showTime);
+//            }
+//
+//            holder.show_times_container.addView(showtimeGrid);
+            holder.show_times_container.addView(showtimeGrid);
         }
 
         /**
@@ -80,7 +91,7 @@ public class MovieAdapter extends BaseAdapter {
         holder.moviePoster.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ViewGroup parent = (ViewGroup) v.getParent();
+                ViewGroup parent = (ViewGroup) v.getParent().getParent();
                 LinearLayout showTimesContainer = (LinearLayout) parent.findViewById(R.id.show_times_container);
 
                 if(showTimesContainer.getVisibility() == View.VISIBLE){
@@ -100,7 +111,7 @@ public class MovieAdapter extends BaseAdapter {
         holder.movieTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ViewGroup parent = (ViewGroup) v.getParent();
+                ViewGroup parent = (ViewGroup) v.getParent().getParent();
                 LinearLayout showTimesContainer = (LinearLayout) parent.findViewById(R.id.show_times_container);
 
                 if(showTimesContainer.getVisibility() == View.VISIBLE){

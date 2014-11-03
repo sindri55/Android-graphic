@@ -9,23 +9,31 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/movie_title"
+            android:layout_below="@+id/details_container"
             android:visibility="gone"
             android:id="@+id/show_times_container">
     </LinearLayout>
 
-    <ImageView
-            android:id="@+id/movie_poster"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="#ddd"/>
-
-    <TextView
-            android:id="@+id/movie_title"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_below="@id/movie_poster"
-            android:background="#ddd"/>
+            android:id="@+id/details_container"
+            android:background="@drawable/movie_container">
+
+        <ImageView
+                android:id="@+id/movie_poster"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
+
+        <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:gravity="center"
+                android:layout_below="@id/movie_poster"/>
+    </LinearLayout>
+
 
 </RelativeLayout>

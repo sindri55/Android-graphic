@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <drawable name="movie_pressed_color">#1e1e1e</drawable>
-    <drawable name="movie_normal_color">#1e1e1e</drawable>
+    <drawable name="movie_pressed_color">#ffffff</drawable>
+    <drawable name="movie_normal_color">#111111</drawable>
+
+    <drawable name="showtime_container_color">#000000</drawable>
 </resources>
