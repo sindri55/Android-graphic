@@ -38,8 +38,6 @@ public class TheatersAdapter extends ArrayAdapter<String> {
 
             TextView textView = (TextView) view.findViewById(R.id.theatersId1);
             textView.setText(Arrays.toString(theaters[position].getBytes()));
-
-
         }else {
             view = (View) convertView;
         }

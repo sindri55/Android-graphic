@@ -1,17 +1,16 @@
 package is.advanced.movie.fragments;
 
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 
 import java.util.List;
 
 import is.advanced.movie.R;
-import is.advanced.movie.activitys.MovieAdapter;
+import is.advanced.movie.adapters.MovieAdapter;
+import is.advanced.movie.grids.StaggeredGridView;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
 
@@ -19,6 +18,8 @@ public class MovieFragment extends Fragment{
 
     public final static String ARG_POSITION = "position";
     int mCurrentPosition = -1;
+    StaggeredGridView stgv;
+    MovieAdapter mAdapter;
     List<Movie> movieList = Global.getInstance().getMovieList();
 
     @Override
@@ -26,22 +27,19 @@ public class MovieFragment extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.movies, container, false);
 
+        stgv = (StaggeredGridView) view.findViewById(R.id.stgv);
 
-        GridView gridView = (GridView) view.findViewById(R.id.gridview);
-        gridView.setAdapter(new MovieAdapter(getActivity(), movieList));
+        int margin = getResources().getDimensionPixelSize(R.dimen.stgv_margin);
 
-/*        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        stgv.setItemMargin(margin);
+        stgv.setPadding(margin, 0, margin, 0);
 
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                Toast.makeText(getActivity(), "hello", Toast.LENGTH_SHORT).show();
-            }
-        });
+        mAdapter = new MovieAdapter(this.getActivity(), movieList);
+        stgv.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
 
-*/
         return view;
     }
-
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -50,5 +48,4 @@ public class MovieFragment extends Fragment{
         // Save the current article selection in case we need to recreate the fragment
         outState.putInt(ARG_POSITION, mCurrentPosition);
     }
-
 }
