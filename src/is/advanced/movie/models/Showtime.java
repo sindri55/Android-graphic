@@ -18,6 +18,8 @@ public class Showtime {
         return theatre;
     }
 
+
+
     public List<String> getSchedule() {
         return schedule;
     }

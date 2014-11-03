@@ -61,6 +61,10 @@ public class FlashActivity extends Activity
                 }
                 else
                 {
+                    for(int i = 0; i < Global.getInstance().getMovieList().size(); i++)
+                    {
+                        System.out.println("******" + Global.getInstance().getMovieList().get(i));
+                    }
                     Intent i = new Intent(c, MainActivity.class);
                     startActivity(i);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

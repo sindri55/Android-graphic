@@ -10,8 +10,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
+import is.advanced.movie.R;
 import is.advanced.movie.activitys.ErrorActivity;
 import is.advanced.movie.models.Global;
 import is.advanced.movie.models.Movie;
@@ -34,7 +36,7 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
     public List<Movie> movieList = new ArrayList<Movie>();
     Context context;
     Handler handler;
-
+    public Bitmap bmp;
     long startTime = System.nanoTime();
 
     public GetData(Context c,Handler h){
@@ -103,33 +105,38 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
                     Showtime showtimeForMovie = new Showtime(theater,scheduleList);
                     showtimeList.add(showtimeForMovie);
-
                 }
 
-                URL u = new URL(image);
-                Bitmap bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
+                try {
 
-                long elapsedTime = (System.nanoTime() - startTime) / 100000000;
-                System.out.println(elapsedTime + "'''''''''''''''''''''''''''''");
-
-                if(elapsedTime >= 100){
-                   i = j.length();
-                    movieList = null;
-               }
-                else {
+                    URL u = new URL(image);
+                    bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
                     Movie movie = new Movie(title, released, restricted, imdb, bmp, showtimeList);
                     movieList.add(movie);
-               }
+
+                }
+                catch (Exception e)
+                {
+                    System.out.println("error reading image");
+                    Bitmap icon = BitmapFactory.decodeResource(context.getResources(),R.drawable.noimage);
+                    Movie movie = new Movie(title, released, restricted, imdb, icon, showtimeList);
+                    movieList.add(movie);
+                }
+                long elapsedTime = (System.nanoTime() - startTime) / 100000000;
+
+
+                if(elapsedTime >= 100)
+                {
+                   i = j.length();
+                   movieList = null;
+                }
             }
         }
         catch(Exception e){
             System.out.println("Error reading Json");
         }
-
             return movieList;
-
     }
-
     @Override
     protected void onPostExecute(List<Movie> result) {
         super.onPostExecute(result);
