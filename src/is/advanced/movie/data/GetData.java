@@ -100,7 +100,12 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
                     for(int x = 0; x < scheduleArr.length(); x++)
                     {
-                        scheduleList.add(scheduleArr.getString(x));
+                        if(scheduleArr.getString(x).contains("LÚX")){
+                            scheduleList.add(scheduleArr.getString(x).replace("LÚX", "L"));
+                        }
+                        else {
+                            scheduleList.add(scheduleArr.getString(x));
+                        }
                     }
 
                     Showtime showtimeForMovie = new Showtime(theater,scheduleList);
