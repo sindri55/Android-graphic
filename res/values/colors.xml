@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <drawable name="movie_pressed_color">#ffffff</drawable>
-    <drawable name="movie_normal_color">#111111</drawable>
+    <drawable name="movie_pressed_color">#50ffffff</drawable>
+    <drawable name="movie_normal_color">#50111111</drawable>
 
-    <drawable name="showtime_container_color">#000000</drawable>
+    <drawable name="showtime_container_color">#50000000</drawable>
 
-    <color name="selected_movie_name_background_color">#333333</color>
-    <color name="normal_movie_name_background_color">#111111</color>
+    <color name="selected_movie_name_background_color">#50333333</color>
+    <color name="normal_movie_name_background_color">#50646364</color>
 </resources>

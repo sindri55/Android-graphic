@@ -4,19 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_sky"
+    android:id="@+id/scroll_view"
+    >
 
         <fragment android:name="is.advanced.movie.fragments.FilterFragment"
             android:id="@+id/filter_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.20" />
+            android:layout_weight="0.20"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
 
         <fragment android:name="is.advanced.movie.fragments.MovieFragment"
             android:id="@+id/headlines_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.80"
+
             />
 
 </LinearLayout>

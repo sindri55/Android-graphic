@@ -6,4 +6,5 @@
              android:numColumns="2"
              android:clickable="true"
              android:layout_height="match_parent"
-             android:background="@color/normal_movie_name_background_color"/>
+             android:background="@color/normal_movie_name_background_color"
+    />

@@ -1,4 +1,4 @@
-package is.advanced.movie.activitys;
+package is.advanced.movie.adapters;
 
 import android.content.Context;
 import android.view.View;
