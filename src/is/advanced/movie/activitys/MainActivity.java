@@ -50,11 +50,11 @@ public class MainActivity extends FragmentActivity
 
         if(!selected.contains(theaterName)){
             selected.add(theaterName);
-            theaterNameView.setBackgroundColor(getResources().getColor(R.color.selected_movie_name_background_color));
+            theaterNameView.setBackgroundColor(getResources().getColor(R.color.movie_pressed_color));
         }
         else {
             selected.remove(theaterName);
-            theaterNameView.setBackgroundColor(getResources().getColor(R.color.normal_movie_name_background_color));
+            theaterNameView.setBackgroundColor(getResources().getColor(R.color.movie_normal_color));
         }
 
         StaggeredGridView stgv = (StaggeredGridView) findViewById(R.id.stgv);

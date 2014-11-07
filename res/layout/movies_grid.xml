@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/details_container"
             android:visibility="gone"
+            android:background="@color/showtime_container_color"
             android:id="@+id/show_times_container">
     </LinearLayout>
 

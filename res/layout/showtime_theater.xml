@@ -4,5 +4,5 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:gravity="center"
-              android:background="@drawable/showtime_container_color">
+              android:background="@color/theater_name_color">
 </TextView>

@@ -7,5 +7,5 @@
                                         android:gravity="center"
                                         android:stretchMode="columnWidth"
                                         android:numColumns="3"
-                                        android:background="@drawable/showtime_container_color">
+                                        android:background="@color/showtime_container_color">
 </is.advanced.movie.grids.CustomGridView>
