@@ -102,21 +102,41 @@ public class MovieAdapter extends BaseAdapter {
 
         if(mMovieList.get(position).getImdbLink().length() > 1){
             Button imdbButton = (Button) mInflater.inflate(R.layout.showtime_imdb_button, holder.show_times_container, false);
-            ImdbLink imdbLink = new ImdbLink();
-            imdbLink.url = mMovieList.get(position).getImdbLink();
-            imdbButton.setTag(imdbLink);
+            externalLink externalLink = new externalLink();
+            externalLink.url = mMovieList.get(position).getImdbLink();
+            imdbButton.setTag(externalLink);
             imdbButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ImdbLink imdbLink = (ImdbLink) v.getTag();
+                    externalLink externalLink = (externalLink) v.getTag();
 
-                    Uri uri = Uri.parse(imdbLink.url);
+                    Uri uri = Uri.parse(externalLink.url);
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     mContext.startActivity(intent);
                 }
             });
 
             holder.show_times_container.addView(imdbButton);
+        }
+
+        if(mMovieList.get(position).getTrailerLink() != null && mMovieList.get(position).getTrailerLink().length() > 1){
+            Button trailerbutton = (Button) mInflater.inflate(R.layout.showtime_imdb_button, holder.show_times_container, false);
+            trailerbutton.setText("Skoða Trailer");
+            externalLink trailerLink = new externalLink();
+            trailerLink.url = mMovieList.get(position).getTrailerLink();
+            trailerbutton.setTag(trailerLink);
+            trailerbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    externalLink externalLink = (externalLink) v.getTag();
+
+                    Uri uri = Uri.parse(externalLink.url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    mContext.startActivity(intent);
+                }
+            });
+
+            holder.show_times_container.addView(trailerbutton);
         }
 
         /**
@@ -175,7 +195,7 @@ public class MovieAdapter extends BaseAdapter {
         public LinearLayout show_times_container;
     }
 
-    public class ImdbLink {
+    public class externalLink {
         public String url;
     }
 }

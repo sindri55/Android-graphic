@@ -13,6 +13,7 @@ public class Movie {
     private String imdb;
     private String imdbLink;
     private Bitmap image;
+    private String trailerLink;
     private List<Showtime> showtimeList;
 
     public Movie(){
@@ -86,5 +87,13 @@ public class Movie {
 
     public void setImdb(String imdb) {
         this.imdb = imdb;
+    }
+
+    public String getTrailerLink() {
+        return trailerLink;
+    }
+
+    public void setTrailerLink(String trailerLink) {
+        this.trailerLink = trailerLink;
     }
 }
