@@ -5,13 +5,13 @@ package is.advanced.movie.activitys;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -41,9 +41,6 @@ public class MainActivity extends FragmentActivity
 
 
     public void onClick(View view) {
-        //TheatersAdapter adapter = new TheatersAdapter(getApplicationContext());
-        //movieList.clear();
-
         TextView theaterNameView = (TextView) view;
         String theaterName = theaterNameView.getText().toString();
 

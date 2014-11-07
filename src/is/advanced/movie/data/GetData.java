@@ -84,6 +84,7 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 String released = (String) movies.get("released");
                 String restricted = (String) movies.get("restricted");
                 String imdb = (String) movies.get("imdb");
+                String imdbLink = (String) movies.get("imdbLink");
                 String image = (String) movies.get("image");
 
                 JSONArray showtimes = movies.getJSONArray("showtimes");
@@ -118,7 +119,7 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
 
                     URL u = new URL(image);
                     bmp = BitmapFactory.decodeStream(u.openConnection().getInputStream());
-                    Movie movie = new Movie(title, released, restricted, imdb, bmp, showtimeList);
+                    Movie movie = new Movie(title, released, restricted, imdb, imdbLink, bmp, showtimeList);
                     movieList.add(movie);
 
                 }
@@ -126,7 +127,7 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 {
                     System.out.println("error reading image");
                     Bitmap icon = BitmapFactory.decodeResource(context.getResources(),R.drawable.noimage);
-                    Movie movie = new Movie(title, released, restricted, imdb, icon, showtimeList);
+                    Movie movie = new Movie(title, released, restricted, imdb, imdbLink, icon, showtimeList);
                     movieList.add(movie);
                 }
                 long elapsedTime = (System.nanoTime() - startTime) / 100000000;

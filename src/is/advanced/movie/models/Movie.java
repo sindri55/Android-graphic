@@ -11,18 +11,20 @@ public class Movie {
     private String released;
     private String restricted;
     private String imdb;
+    private String imdbLink;
     private Bitmap image;
     private List<Showtime> showtimeList;
 
     public Movie(){
     }
 
-    public Movie(String title, String released, String restricted, String imdb, Bitmap image,List<Showtime> showtimeList) {
+    public Movie(String title, String released, String restricted, String imdb, String imdbLink, Bitmap image,List<Showtime> showtimeList) {
 
         this.title = title;
         this.released = released;
         this.restricted = restricted;
         this.imdb = imdb;
+        this.imdbLink = imdbLink;
         this.image = image;
         this.showtimeList = showtimeList;
 
@@ -47,6 +49,12 @@ public class Movie {
     }
     public List<Showtime> getShowtimeList() {
         return showtimeList;
+    }
+    public String getImdbLink() {
+        return imdbLink;
+    }
+    public void setImdbLink(String imdbLink) {
+        this.imdbLink = imdbLink;
     }
 
     public void setShowtimeList(List<Showtime> showtimeList) {

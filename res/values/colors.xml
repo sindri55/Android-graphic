@@ -5,8 +5,12 @@
 
     <color name="showtime_container_color">#50000000</color>
 
-    <!--<color name="selected_movie_name_background_color">#80333333</color>-->
-    <!--<color name="normal_movie_name_background_color">#50646364</color>-->
-
     <color name="theater_name_color">#70000000</color>
+
+    <color name="button_normal_color">#90000000</color>
+    <color name="button_pressed_color">#70000000</color>
+
+    <color name="restricted_none">#0BA11E</color>
+    <color name="restricted_12">#ffe8c628</color>
+    <color name="restricted_16">#e43e43</color>
 </resources>

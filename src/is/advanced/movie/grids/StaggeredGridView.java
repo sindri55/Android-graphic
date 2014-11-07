@@ -45,6 +45,7 @@ import is.advanced.movie.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// borrowed from https://github.com/etsy/AndroidStaggeredGrid
 /**
  * ListView and GridView just not complex enough? Try StaggeredGridView!
  * <p/>

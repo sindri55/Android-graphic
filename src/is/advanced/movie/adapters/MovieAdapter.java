@@ -1,6 +1,8 @@
 package is.advanced.movie.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +66,26 @@ public class MovieAdapter extends BaseAdapter {
 
         Holder holder = (Holder) view.getTag();
 
+        String restricted = mMovieList.get(position).getRestricted();
+        TextView restrictedView = (TextView) mInflater.inflate(R.layout.showtime_details, holder.show_times_container, false);
+        restrictedView.setText(mMovieList.get(position).getRestricted());
+        if(restricted.contains("Öllum")){
+            restrictedView.setTextColor(mContext.getResources().getColor(R.color.restricted_none));
+        }
+        else if (restricted.contains("12")){
+            restrictedView.setTextColor(mContext.getResources().getColor(R.color.restricted_12));
+        }
+        else {
+            restrictedView.setTextColor(mContext.getResources().getColor(R.color.restricted_16));
+        }
+        holder.show_times_container.addView(restrictedView);
+
+        if(mMovieList.get(position).getImdb().length() > 1){
+            TextView imdb = (TextView) mInflater.inflate(R.layout.showtime_details, holder.show_times_container, false);
+            imdb.setText("Imdb: " + mMovieList.get(position).getImdb().split(" ")[0]);
+            holder.show_times_container.addView(imdb);
+        }
+
         List<Showtime> showtimeList = mMovieList.get(position).getShowtimeList();
         for(int j=0; j<showtimeList.size(); j++){
             TextView theaterName = (TextView) mInflater.inflate(R.layout.showtime_theater, holder.show_times_container, false);
@@ -74,14 +96,27 @@ public class MovieAdapter extends BaseAdapter {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,
                     R.layout.showtime_time, showtimeList.get(j).getScheduleArray());
             showtimeGrid.setAdapter(adapter);
-//            for(int k=0; k<showtimeList.get(j).getSchedule().size(); k++){
-//                TextView showTime = (TextView) mInflater.inflate(R.layout.showtime_time, holder.show_times_container, false);
-//                showTime.setText(showtimeList.get(j).getSchedule().get(k));
-//                showtimeGrid.addView(showTime);
-//            }
-//
-//            holder.show_times_container.addView(showtimeGrid);
+
             holder.show_times_container.addView(showtimeGrid);
+        }
+
+        if(mMovieList.get(position).getImdbLink().length() > 1){
+            Button imdbButton = (Button) mInflater.inflate(R.layout.showtime_imdb_button, holder.show_times_container, false);
+            ImdbLink imdbLink = new ImdbLink();
+            imdbLink.url = mMovieList.get(position).getImdbLink();
+            imdbButton.setTag(imdbLink);
+            imdbButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImdbLink imdbLink = (ImdbLink) v.getTag();
+
+                    Uri uri = Uri.parse(imdbLink.url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    mContext.startActivity(intent);
+                }
+            });
+
+            holder.show_times_container.addView(imdbButton);
         }
 
         /**
@@ -138,5 +173,9 @@ public class MovieAdapter extends BaseAdapter {
         public ImageView moviePoster;
         public TextView movieTitle;
         public LinearLayout show_times_container;
+    }
+
+    public class ImdbLink {
+        public String url;
     }
 }
