@@ -176,9 +176,11 @@ public class GetData  extends AsyncTask<String, String, List<Movie>> {
                 responseString = out.toString();
 
                 String[] bla = responseString.split("\"");
-                for(int i=0; i<bla.length; i++){
-                    if(bla[i].contains("http:")){
-                        movieList.get(position).setTrailerLink(bla[i].replace("\\", ""));
+                if(bla[3].contains(movieList.get(position).getTitle())){
+                    for(int i=0; i<bla.length; i++){
+                        if(bla[i].contains("http:")){
+                            movieList.get(position).setTrailerLink(bla[i].replace("\\", ""));
+                        }
                     }
                 }
             } else{
