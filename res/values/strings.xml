@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Hvað er í Bíó</string>
-    <string name="action_search">Leit</string>
-    <string name="action_settings">Stillingar</string>
-    <string name="see_on_imdb">Skoða á Imdb</string>
-</resources>
