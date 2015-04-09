@@ -4,10 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.GoIceland.R;
+import com.example.GoIceland.animations.SlideAnimationListener;
 import com.example.GoIceland.models.Concert;
 
 import java.util.ArrayList;
@@ -54,6 +58,27 @@ public class ConcertAdapter extends BaseAdapter {
         txtTitle.setText(m_ConcertList.get(position).getTitle());
         imgImage.setImageBitmap(m_ConcertList.get(position).getImage());
         txtDescription.setText(m_ConcertList.get(position).getDescription());
+
+        LinearLayout concertContainer = (LinearLayout) convertView.findViewById(R.id.concert_container);
+        concertContainer.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                ViewGroup parent = (ViewGroup) v.getParent();
+                LinearLayout detailsContainer = (LinearLayout) parent.findViewById(R.id.concert_details_container);
+
+                if (detailsContainer.getVisibility() == View.VISIBLE) {
+                    Animation slideUp = AnimationUtils.loadAnimation(detailsContainer.getContext(), R.anim.slide_up);
+                    slideUp.setAnimationListener(new SlideAnimationListener(detailsContainer, true));
+                    detailsContainer.startAnimation(slideUp);
+                } else {
+                    detailsContainer.setVisibility(View.VISIBLE);
+                    Animation slideDown = AnimationUtils.loadAnimation(detailsContainer.getContext(), R.anim.slide_down);
+                    slideDown.setAnimationListener(new SlideAnimationListener(detailsContainer, false));
+                    detailsContainer.startAnimation(slideDown);
+                }
+            }
+        });
 
         return convertView;
     }

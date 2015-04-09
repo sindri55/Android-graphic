@@ -1,5 +1,6 @@
 package com.example.GoIceland.models;
 
+import android.app.Fragment;
 import android.graphics.Bitmap;
 
 /**
@@ -8,14 +9,16 @@ import android.graphics.Bitmap;
 public class Category {
     private String m_Title;
     private Bitmap m_Image;
+    private int m_FragmentId;
 
     public Category() {
 
     }
 
-    public Category(String title, Bitmap image) {
+    public Category(String title, Bitmap image, int fragmentId) {
         this.m_Title = title;
         this.m_Image = image;
+        this.m_FragmentId = fragmentId;
     }
 
     public String getTitle() {
@@ -32,5 +35,13 @@ public class Category {
 
     public void setImage(Bitmap image) {
         this.m_Image = image;
+    }
+
+    public int getFragmentId() {
+        return m_FragmentId;
+    }
+
+    public void setFragmentId(int fragmentId) {
+        this.m_FragmentId = fragmentId;
     }
 }

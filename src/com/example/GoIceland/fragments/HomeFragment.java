@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.GoIceland.R;
 import com.example.GoIceland.adapters.CategoryAdapter;
 import com.example.GoIceland.grids.StaggeredGridView;
