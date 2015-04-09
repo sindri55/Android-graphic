@@ -36,22 +36,38 @@ public class SettingsFragment extends Fragment {
         m_DateService = new DateServiceStub();
 
         ArrayList<String> locations = m_LocationService.getLocationList();
+        ArrayList<String> monthList = m_DateService.getMonthList();
+        ArrayList<String> dayList = m_DateService.getDayList();
+
         Spinner locationSpinner = (Spinner) view.findViewById(R.id.location_spinner);
         ArrayAdapter<String> locationAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, locations);
         locationAdapter.setDropDownViewResource(R.layout.settings_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
 
-        ArrayList<String> monthList = m_DateService.getMonthList();
-        Spinner monthSpinner = (Spinner) view.findViewById(R.id.date_picker_month_spinner);
-        ArrayAdapter<String> monthAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, monthList);
-        monthAdapter.setDropDownViewResource(R.layout.settings_dropdown_item);
-        monthSpinner.setAdapter(monthAdapter);
+        Spinner monthFromSpinner = (Spinner) view.findViewById(R.id.date_picker_from_month_spinner);
+        ArrayAdapter<String> monthFromAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, monthList);
+        monthFromAdapter.setDropDownViewResource(R.layout.settings_dropdown_item);
+        monthFromSpinner.setAdapter(monthFromAdapter);
+        monthFromSpinner.setSelection(monthFromAdapter.getPosition("April"));
 
-        ArrayList<String> dayList = m_DateService.getDayList();
-        Spinner daySpinner = (Spinner) view.findViewById(R.id.date_picker_day_spinner);
-        ArrayAdapter<String> dayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, dayList);
-        dayAdapter.setDropDownViewResource(R.layout.settings_dropdown_item);
-        daySpinner.setAdapter(dayAdapter);
+        Spinner dayFromSpinner = (Spinner) view.findViewById(R.id.date_picker_from_day_spinner);
+        ArrayAdapter<String> dayFromAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, dayList);
+        dayFromAdapter.setDropDownViewResource(R.layout.settings_dropdown_item);
+        dayFromSpinner.setAdapter(dayFromAdapter);
+        dayFromSpinner.setSelection(dayFromAdapter.getPosition("10"));
+
+
+        Spinner monthToSpinner = (Spinner) view.findViewById(R.id.date_picker_to_month_spinner);
+        ArrayAdapter<String> monthToAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, monthList);
+        monthToAdapter.setDropDownViewResource(R.layout.settings_dropdown_item);
+        monthToSpinner.setAdapter(monthToAdapter);
+        monthToSpinner.setSelection(monthToAdapter.getPosition("April"));
+
+        Spinner dayToSpinner = (Spinner) view.findViewById(R.id.date_picker_to_day_spinner);
+        ArrayAdapter<String> dayToAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, dayList);
+        dayToAdapter.setDropDownViewResource(R.layout.settings_dropdown_item);
+        dayToSpinner.setAdapter(dayToAdapter);
+        dayToSpinner.setSelection(dayToAdapter.getPosition("17"));
 
         return view;
     }

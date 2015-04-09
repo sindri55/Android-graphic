@@ -6,7 +6,6 @@
               android:layout_height="match_parent"
               android:padding="@dimen/settings_layout_padding">
     <TextView
-            android:id="@+id/location_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_location"
@@ -19,10 +18,9 @@
             android:layout_height="wrap_content"/>
 
     <TextView
-            android:id="@+id/date_picker_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/settings_date_picker"
+            android:text="@string/settings_date_picker_from"
             android:padding="@dimen/settings_date_picker_text_padding"
             android:textSize="@dimen/settings_date_picker_text_size"/>
 
@@ -32,7 +30,6 @@
             android:layout_height="wrap_content">
 
         <TextView
-                android:id="@+id/date_picker_month_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,7 +38,6 @@
                 android:textSize="@dimen/settings_date_picker_month_text_size"/>
 
         <TextView
-                android:id="@+id/date_picker_day_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -57,13 +53,62 @@
             android:layout_height="wrap_content">
 
         <Spinner
-                android:id="@+id/date_picker_month_spinner"
+                android:id="@+id/date_picker_from_month_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
 
         <Spinner
-                android:id="@+id/date_picker_day_spinner"
+                android:id="@+id/date_picker_from_day_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_date_picker_to"
+            android:padding="@dimen/settings_date_picker_text_padding"
+            android:textSize="@dimen/settings_date_picker_text_size"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/settings_date_picker_month"
+                android:padding="@dimen/settings_date_picker_month_text_padding"
+                android:textSize="@dimen/settings_date_picker_month_text_size"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/settings_date_picker_month"
+                android:padding="@dimen/settings_date_picker_month_text_padding"
+                android:textSize="@dimen/settings_date_picker_month_text_size"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Spinner
+                android:id="@+id/date_picker_to_month_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        <Spinner
+                android:id="@+id/date_picker_to_day_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>

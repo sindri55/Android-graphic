@@ -2,6 +2,7 @@ package com.example.GoIceland.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,11 +49,16 @@ public class NavDrawerListAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.nav_list_item, null);
         }
 
+        Typeface fontRegular = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Regular.ttf");
+        Typeface fontBold = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Bold.ttf");
+        Typeface fontThin = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Thin.ttf");
+
         ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
         TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
 
         imgIcon.setImageResource(m_NavDrawerItems.get(position).getIcon());
         txtTitle.setText(m_NavDrawerItems.get(position).getTitle());
+        txtTitle.setTypeface(fontBold);
 
         return convertView;
     }

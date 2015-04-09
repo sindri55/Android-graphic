@@ -3,6 +3,7 @@ package com.example.GoIceland.adapters;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,10 +52,15 @@ public class CategoryAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.grid_category, null);
         }
 
+        Typeface fontRegular = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Regular.ttf");
+        Typeface fontBold = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Bold.ttf");
+        Typeface fontThin = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Thin.ttf");
+
         TextView txtTitle = (TextView) convertView.findViewById(R.id.category_title);
         ImageView imgImage = (ImageView) convertView.findViewById(R.id.category_image);
 
         txtTitle.setText(m_CategoryList.get(position).getTitle());
+        txtTitle.setTypeface(fontBold);
         imgImage.setImageBitmap(m_CategoryList.get(position).getImage());
 
         convertView.setOnClickListener(new View.OnClickListener() {
