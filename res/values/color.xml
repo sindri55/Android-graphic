@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Nav list -->
     <color name="nav_list_item_title">#FFFFFF</color>
     <color name="nav_list_bg">#303030</color>
     <color name="nav_list_item_bg">#303030</color>
     <color name="nav_list_item_bg_pressed">#992416</color>
     <color name="nav_list_divider">#272727</color>
+
+    <!-- Container -->
+    <color name="stgv_container_bg">#303030</color>
+    <color name="stgv_container_bg_pressed">#992416</color>
+
+    <color name="concert_container_bg">#FF141DC6</color>
+    <color name="concert_container_bg_pressed">#FF8A0AC6</color>
 </resources>

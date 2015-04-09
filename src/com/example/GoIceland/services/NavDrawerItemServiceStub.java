@@ -16,7 +16,7 @@ public class NavDrawerItemServiceStub implements NavDrawerItemService {
         ArrayList<NavDrawerItem> items = new ArrayList<NavDrawerItem>();
 
         items.add(new NavDrawerItem("Home", R.drawable.ic_home));
-        items.add(new NavDrawerItem("Something", R.drawable.ic_home));
+        items.add(new NavDrawerItem("Concerts", R.drawable.ic_home));
         items.add(new NavDrawerItem("Else", R.drawable.ic_home));
         items.add(new NavDrawerItem("Different", R.drawable.ic_home));
 

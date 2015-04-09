@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.GoIceland.R;
 import com.example.GoIceland.adapters.NavDrawerListAdapter;
+import com.example.GoIceland.fragments.ConcertFragment;
 import com.example.GoIceland.fragments.HomeFragment;
 import com.example.GoIceland.models.NavDrawerItem;
 import com.example.GoIceland.services.NavDrawerItemService;
@@ -98,7 +99,7 @@ public class MainActivity extends Activity {
                 fragment = new HomeFragment();
                 break;
             case 1:
-                fragment = new HomeFragment();
+                fragment = new ConcertFragment();
                 break;
             case 2:
                 fragment = new HomeFragment();
