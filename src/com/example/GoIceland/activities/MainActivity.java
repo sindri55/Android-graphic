@@ -13,11 +13,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import com.example.GoIceland.R;
 import com.example.GoIceland.adapters.NavDrawerListAdapter;
 import com.example.GoIceland.enums.FragmentEnum;
+import com.example.GoIceland.fragments.ArtShowsFragment;
+import com.example.GoIceland.fragments.BarsFragment;
 import com.example.GoIceland.fragments.ConcertFragment;
+import com.example.GoIceland.fragments.FlyToursFragment;
 import com.example.GoIceland.fragments.HomeFragment;
+import com.example.GoIceland.fragments.MotorSportsFragment;
+import com.example.GoIceland.fragments.SportEventFragment;
 import com.example.GoIceland.models.NavDrawerItem;
 import com.example.GoIceland.services.NavDrawerItemService;
 import com.example.GoIceland.services.NavDrawerItemServiceStub;
@@ -102,12 +108,25 @@ public class MainActivity extends Activity {
             case FragmentEnum.ConcertFragment:
                 fragment = new ConcertFragment();
                 break;
-            case 2:
-                fragment = new HomeFragment();
+            case FragmentEnum.FlyToursFragment:
+                fragment = new FlyToursFragment();
                 break;
-            case 3:
-                fragment = new HomeFragment();
+            case FragmentEnum.SportEventFragment:
+                fragment = new SportEventFragment();
                 break;
+            case FragmentEnum.MotorSportsFragment:
+                fragment = new MotorSportsFragment();
+                break;
+            case FragmentEnum.BarsFragment:
+                fragment = new BarsFragment();
+                break;
+            case FragmentEnum.ArtShowsFragment:
+                fragment = new ArtShowsFragment();
+                break;
+
+
+
+
             default:
                 break;
         }

@@ -22,11 +22,17 @@ public class ConcertServiceStub implements ConcertService {
     public ArrayList<Concert> getConcertList() {
         ArrayList<Concert> list = new ArrayList<Concert>();
 
-        Bitmap image = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.concert);
+        Bitmap bubbi = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.bubbi);
+        Bitmap megas = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.megas);
+        Bitmap solid = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.solid);
+        Bitmap raggi = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.raggi);
 
-        list.add(new Concert("Gunni Jóhannsson", "Kaplakrika", "Gunni stígur villtan dans í Kaplakrikanum og verður mikið gaman mikið fjör", "May 21, 2015", "15:00", image));
-        list.add(new Concert("Gústafur Finnson", "Egilshöll", "Gústi kallinn stendur alltaf fyrir sínu...", "May 21, 2015", "15:00", image));
-        list.add(new Concert("Brynjar Jónsson", "Heima", "Hann Brynjar spilar á harmonikku heima hjá sér undir teppi", "May 21, 2015", "15:00", image));
+
+
+        list.add(new Concert("Name: Solid Hologram", "City: Reykjavík", "Location: Harpa, norðurljós", "Date: 29. maí 2015", "Time: 20:00", solid));
+        list.add(new Concert("Name: Bubbi Morthens", "City: Reykjavík", "Location: Laugardalshöll", "Date: 14. maí 2015", "Time: 19:00", bubbi));
+        list.add(new Concert("Name: Raggi Bjarna", "City: Reykjavík", "Location: Harpa, Norðurljós", "Date: 29 júní 2015", "Time: 20:00", raggi));
+        list.add(new Concert("Name: Megas", "City: Hafnafjörður", "Location: Kaplakrika", "Date: 1 ágúst 2015", "Time: 22:00", megas));
 
         return list;
     }

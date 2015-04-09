@@ -9,9 +9,9 @@
 
     <!-- Nav list -->
     <color name="nav_list_item_title">#FFFFFF</color>
-    <color name="nav_list_bg">@color/orange</color>
-    <color name="nav_list_item_bg_normal">@color/orange</color>
-    <color name="nav_list_item_bg_pressed">@color/darkOrange</color>
+    <color name="nav_list_bg">@color/darkOrange</color>
+    <color name="nav_list_item_bg_normal">@color/darkOrange</color>
+    <color name="nav_list_item_bg_pressed">@color/orange</color>
     <color name="nav_list_divider">#000000</color>
 
     <!-- Container -->

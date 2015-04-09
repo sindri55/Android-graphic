@@ -1,7 +1,6 @@
 package com.example.GoIceland.adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,12 +49,9 @@ public class CategoryAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.grid_category, null);
         }
 
-        Typeface font = Typeface.createFromAsset(m_Context.getAssets(), "OpenSans-Light.ttf");
 
 
         TextView txtTitle = (TextView) convertView.findViewById(R.id.category_title);
-        txtTitle.setTypeface(font);
-
 
         ImageView imgImage = (ImageView) convertView.findViewById(R.id.category_image);
 

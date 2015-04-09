@@ -53,11 +53,17 @@ public class ConcertAdapter extends BaseAdapter {
 
         ImageView imgImage = (ImageView) convertView.findViewById(R.id.concert_image);
         TextView txtTitle = (TextView) convertView.findViewById(R.id.concert_title);
+        TextView txtLocation = (TextView) convertView.findViewById(R.id.concert_location);
         TextView txtDescription = (TextView) convertView.findViewById(R.id.concert_description);
+        TextView txtDate = (TextView) convertView.findViewById(R.id.concert_date);
+        TextView txtTime = (TextView) convertView.findViewById(R.id.concert_time);
 
         txtTitle.setText(m_ConcertList.get(position).getTitle());
         imgImage.setImageBitmap(m_ConcertList.get(position).getImage());
+        txtLocation.setText(m_ConcertList.get(position).getLocation());
         txtDescription.setText(m_ConcertList.get(position).getDescription());
+        txtDate.setText(m_ConcertList.get(position).getDate());
+        txtTime.setText(m_ConcertList.get(position).getTime());
 
         LinearLayout concertContainer = (LinearLayout) convertView.findViewById(R.id.concert_container);
         concertContainer.setOnClickListener(new View.OnClickListener() {
