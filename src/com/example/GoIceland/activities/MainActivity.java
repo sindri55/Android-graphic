@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.GoIceland.R;
 import com.example.GoIceland.adapters.NavDrawerListAdapter;
+import com.example.GoIceland.enums.FragmentEnum;
 import com.example.GoIceland.fragments.ConcertFragment;
 import com.example.GoIceland.fragments.HomeFragment;
 import com.example.GoIceland.models.NavDrawerItem;
@@ -91,14 +92,14 @@ public class MainActivity extends Activity {
     /**
      * Diplaying fragment view for selected nav drawer list item
      */
-    private void displayView(int position) {
+    public void displayView(int position) {
         // update the main content by replacing fragments
         Fragment fragment = null;
         switch (position) {
-            case 0:
+            case FragmentEnum.HomeFragment:
                 fragment = new HomeFragment();
                 break;
-            case 1:
+            case FragmentEnum.ConcertFragment:
                 fragment = new ConcertFragment();
                 break;
             case 2:

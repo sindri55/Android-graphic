@@ -1,5 +1,7 @@
 package com.example.GoIceland.adapters;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +9,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.example.GoIceland.R;
+import com.example.GoIceland.activities.MainActivity;
 import com.example.GoIceland.models.Category;
 
 import java.util.ArrayList;
@@ -41,7 +45,7 @@ public class CategoryAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater mInflater = LayoutInflater.from(m_Context);
             convertView = mInflater.inflate(R.layout.grid_category, null);
@@ -52,6 +56,17 @@ public class CategoryAdapter extends BaseAdapter {
 
         txtTitle.setText(m_CategoryList.get(position).getTitle());
         imgImage.setImageBitmap(m_CategoryList.get(position).getImage());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (m_Context instanceof MainActivity) {
+                    int fragmentId = m_CategoryList.get(position).getFragmentId();
+                    ((MainActivity) m_Context).displayView(fragmentId);
+                }
+            }
+        });
 
         return convertView;
     }
