@@ -7,6 +7,9 @@
     <dimen name="concert_title_padding">@dimen/stgv_title_padding</dimen>
     <dimen name="concert_title_text_size">@dimen/stgv_title_text_size</dimen>
 
+    <dimen name="category_title_padding">@dimen/stgv_title_padding</dimen>
+    <dimen name="category_title_text_size">@dimen/stgv_title_text_size</dimen>
+
     <!-- Description -->
     <dimen name="stgv_description_padding">5dp</dimen>
     <dimen name="stgv_description_text_size">10dp</dimen>

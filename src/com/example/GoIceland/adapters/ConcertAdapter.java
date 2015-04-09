@@ -19,12 +19,10 @@ public class ConcertAdapter extends BaseAdapter {
 
     private Context m_Context;
     private ArrayList<Concert> m_ConcertList;
-    private LayoutInflater m_Inflater;
 
     public ConcertAdapter(Context context, ArrayList<Concert> concertList) {
         m_Context = context;
         m_ConcertList = concertList;
-        m_Inflater = LayoutInflater.from(context);
     }
 
     @Override
