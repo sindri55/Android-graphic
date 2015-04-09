@@ -1,6 +1,7 @@
 package com.example.GoIceland.models;
 
 import android.graphics.Bitmap;
+import com.example.GoIceland.enums.LocationEnum;
 
 /**
  * Created by Hannes on 9.4.2015.
@@ -8,7 +9,7 @@ import android.graphics.Bitmap;
 public class Concert {
 
     private String m_Title;
-    private String m_Location;
+    private int m_LocationId;
     private String m_Description;
     private String m_Date;
     private String m_Time;
@@ -17,9 +18,9 @@ public class Concert {
     public Concert() {
     }
 
-    public Concert(String title, String location, String description, String date, String time, Bitmap image) {
+    public Concert(String title, int locationId, String description, String date, String time, Bitmap image) {
         this.m_Title = title;
-        this.m_Location = location;
+        this.m_LocationId = locationId;
         this.m_Description = description;
         this.m_Date = date;
         this.m_Time = time;
@@ -34,12 +35,12 @@ public class Concert {
         this.m_Title = title;
     }
 
-    public String getLocation() {
-        return m_Location;
+    public int getLocationId() {
+        return this.m_LocationId;
     }
 
-    public void setLocation(String location) {
-        this.m_Location = location;
+    public void setLocationId(int locationId) {
+        this.m_LocationId = locationId;
     }
 
     public String getDate() {
@@ -73,4 +74,9 @@ public class Concert {
     public void setDescription(String description) {
         this.m_Description = description;
     }
+
+    public String getLocation() {
+        return LocationEnum.getString(m_LocationId);
+    }
+
 }

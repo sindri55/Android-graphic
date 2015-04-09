@@ -1,6 +1,7 @@
 package com.example.GoIceland.activities;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
@@ -18,6 +19,7 @@ import com.example.GoIceland.adapters.NavDrawerListAdapter;
 import com.example.GoIceland.enums.FragmentEnum;
 import com.example.GoIceland.fragments.ConcertFragment;
 import com.example.GoIceland.fragments.HomeFragment;
+import com.example.GoIceland.fragments.SettingsFragment;
 import com.example.GoIceland.models.NavDrawerItem;
 import com.example.GoIceland.services.NavDrawerItemService;
 import com.example.GoIceland.services.NavDrawerItemServiceStub;
@@ -149,6 +151,9 @@ public class MainActivity extends Activity {
         // Handle action bar actions click
         switch (item.getItemId()) {
             case R.id.action_settings:
+                Fragment settingsFragment = new SettingsFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.frame_container, settingsFragment).commit();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
