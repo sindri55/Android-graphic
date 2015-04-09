@@ -5,6 +5,26 @@
                 android:layout_height="match_parent">
 
     <LinearLayout
+            android:id="@+id/concert_details_container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/concert_container"
+            android:visibility="gone"
+            android:background="@drawable/concert_details_container_selector">
+
+        <TextView
+                android:id="@+id/concert_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/concert_description_padding"
+                android:textSize="@dimen/concert_description_text_size"
+                android:textColor="@color/concert_description_text_color"
+                android:background="@drawable/concert_description_selector"/>
+
+    </LinearLayout>
+
+    <LinearLayout
             android:id="@+id/concert_container"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -14,7 +34,7 @@
         <ImageView
                 android:id="@+id/concert_image"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"/>
+                android:layout_height="120dp"/>
 
         <TextView
                 android:id="@+id/concert_title"
@@ -25,15 +45,6 @@
                 android:textColor="@color/concert_title_text_color"
                 android:gravity="center"
                 android:background="@drawable/concert_title_selector"/>
-
-        <TextView
-                android:id="@+id/concert_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/concert_description_padding"
-                android:textSize="@dimen/concert_description_text_size"
-                android:textColor="@color/concert_description_text_color"
-                android:background="@drawable/concert_description_selector"/>
 
     </LinearLayout>
 
