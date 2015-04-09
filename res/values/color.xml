@@ -9,9 +9,9 @@
 
     <!-- Nav list -->
     <color name="nav_list_item_title">#FFFFFF</color>
-    <color name="nav_list_bg">@color/orange</color>
-    <color name="nav_list_item_bg_normal">@color/orange</color>
-    <color name="nav_list_item_bg_pressed">@color/darkOrange</color>
+    <color name="nav_list_bg">@color/darkOrange</color>
+    <color name="nav_list_item_bg_normal">@color/darkOrange</color>
+    <color name="nav_list_item_bg_pressed">@color/orange</color>
     <color name="nav_list_divider">#000000</color>
 
     <!-- Container -->
@@ -24,8 +24,8 @@
     <color name="category_container_bg_pressed">@color/dark_grey</color>
 
     <!-- Title -->
-    <color name="concert_title_bg_normal">@color/black</color>
-    <color name="concert_title_bg_pressed">@color/dark_grey</color>
+    <color name="concert_title_bg_normal">@color/orange</color>
+    <color name="concert_title_bg_pressed">@color/orange</color>
     <color name="concert_title_text_color">@color/white</color>
 
     <color name="category_title_bg_normal">@color/category_container_bg_normal</color>
@@ -33,7 +33,7 @@
     <color name="category_title_text_color">@color/white</color>
 
     <!-- Description -->
-    <color name="concert_description_bg_normal">@color/concert_container_bg_normal</color>
+    <color name="concert_description_bg_normal">@color/dark_grey</color>
     <color name="concert_description_bg_pressed">@color/concert_container_bg_pressed</color>
     <color name="concert_description_text_color">@color/white</color>
 </resources>

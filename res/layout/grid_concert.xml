@@ -14,6 +14,15 @@
             android:background="@drawable/concert_details_container_selector">
 
         <TextView
+            android:id="@+id/concert_location"
+            android:text="Location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/concert_description_padding"
+            android:textSize="@dimen/concert_description_text_size"
+            android:textColor="@color/concert_description_text_color"
+            android:background="@drawable/concert_description_selector"/>
+        <TextView
                 android:id="@+id/concert_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -21,7 +30,22 @@
                 android:textSize="@dimen/concert_description_text_size"
                 android:textColor="@color/concert_description_text_color"
                 android:background="@drawable/concert_description_selector"/>
-
+        <TextView
+            android:id="@+id/concert_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/concert_description_padding"
+            android:textSize="@dimen/concert_description_text_size"
+            android:textColor="@color/concert_description_text_color"
+            android:background="@drawable/concert_description_selector"/>
+        <TextView
+            android:id="@+id/concert_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/concert_description_padding"
+            android:textSize="@dimen/concert_description_text_size"
+            android:textColor="@color/concert_description_text_color"
+            android:background="@drawable/concert_description_selector"/>
     </LinearLayout>
 
     <LinearLayout

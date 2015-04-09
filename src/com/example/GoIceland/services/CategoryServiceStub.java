@@ -3,10 +3,9 @@ package com.example.GoIceland.services;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import com.example.GoIceland.R;
 import com.example.GoIceland.enums.FragmentEnum;
-import com.example.GoIceland.fragments.ConcertFragment;
-import com.example.GoIceland.fragments.HomeFragment;
 import com.example.GoIceland.models.Category;
 
 import java.util.ArrayList;
@@ -24,26 +23,22 @@ public class CategoryServiceStub implements CategoryService {
     public ArrayList<Category> getCategoryList() {
         ArrayList<Category> list = new ArrayList<Category>();
 
-        Bitmap image = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.concert);
+        Bitmap airplaneImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_airplane);
+        Bitmap brushImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_brush);
+        Bitmap footballImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_football);
+        Bitmap motorbikeImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_motorbike);
+        Bitmap mugImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_mug);
+        Bitmap musicImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_music);
+        Bitmap homeImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_home);
 
-        list.add(new Category("Concerts", image, FragmentEnum.ConcertFragment));
-        list.add(new Category("Motor Sports", image, FragmentEnum.HomeFragment));
-        /*list.add(new Category("Fly tours", image));
-        list.add(new Category("Art Shows", image));
-        list.add(new Category("Bars", image));
-        list.add(new Category("Sport Events", image));
-        list.add(new Category("Concerts", image));
-        list.add(new Category("Motor Sports", image));
-        list.add(new Category("Fly tours", image));
-        list.add(new Category("Art Shows", image));
-        list.add(new Category("Bars", image));
-        list.add(new Category("Sport Events", image));
-        list.add(new Category("Concerts", image));
-        list.add(new Category("Motor Sports", image));
-        list.add(new Category("Fly tours", image));
-        list.add(new Category("Art Shows", image));
-        list.add(new Category("Bars", image));
-        list.add(new Category("Sport Events", image));*/
+
+
+        list.add(new Category("Concerts", musicImage, FragmentEnum.ConcertFragment));
+        list.add(new Category("Motor Sports", motorbikeImage, FragmentEnum.HomeFragment));
+        list.add(new Category("Fly tours", airplaneImage, FragmentEnum.FlyToursFragment));
+        list.add(new Category("Art Shows", brushImage, FragmentEnum.ArtShowsFragment));
+        list.add(new Category("Bars", mugImage, FragmentEnum.BarsFragment));
+        list.add(new Category("Sport Events", footballImage, FragmentEnum.SportEventFragment));
 
         return list;
     }
