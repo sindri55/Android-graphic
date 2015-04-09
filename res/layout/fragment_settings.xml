@@ -6,6 +6,7 @@
               android:layout_height="match_parent"
               android:padding="@dimen/settings_layout_padding">
     <TextView
+            android:id="@+id/location_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_location"
@@ -18,6 +19,7 @@
             android:layout_height="wrap_content"/>
 
     <TextView
+            android:id="@+id/date_picker_from_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_date_picker_from"
@@ -30,6 +32,7 @@
             android:layout_height="wrap_content">
 
         <TextView
+                android:id="@+id/date_picker_from_month_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -38,6 +41,7 @@
                 android:textSize="@dimen/settings_date_picker_month_text_size"/>
 
         <TextView
+                android:id="@+id/date_picker_from_day_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -67,6 +71,7 @@
     </LinearLayout>
 
     <TextView
+            android:id="@+id/date_picker_to_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_date_picker_to"
@@ -79,6 +84,7 @@
             android:layout_height="wrap_content">
 
         <TextView
+                android:id="@+id/date_picker_to_month_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,10 +93,11 @@
                 android:textSize="@dimen/settings_date_picker_month_text_size"/>
 
         <TextView
+                android:id="@+id/date_picker_to_day_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/settings_date_picker_month"
+                android:text="@string/settings_date_picker_day"
                 android:padding="@dimen/settings_date_picker_month_text_padding"
                 android:textSize="@dimen/settings_date_picker_month_text_size"/>
 

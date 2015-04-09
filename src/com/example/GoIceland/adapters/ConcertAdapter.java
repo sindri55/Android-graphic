@@ -1,6 +1,7 @@
 package com.example.GoIceland.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,10 @@ public class ConcertAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.grid_concert, null);
         }
 
+        Typeface fontRegular = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Regular.ttf");
+        Typeface fontBold = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Bold.ttf");
+        Typeface fontThin = Typeface.createFromAsset(m_Context.getAssets(), "RobotoSlab-Thin.ttf");
+
         ImageView imgImage = (ImageView) convertView.findViewById(R.id.concert_image);
         TextView txtTitle = (TextView) convertView.findViewById(R.id.concert_title);
         TextView txtLocation = (TextView) convertView.findViewById(R.id.concert_location);
@@ -59,11 +64,16 @@ public class ConcertAdapter extends BaseAdapter {
         TextView txtTime = (TextView) convertView.findViewById(R.id.concert_time);
 
         txtTitle.setText(m_ConcertList.get(position).getTitle());
+        txtTitle.setTypeface(fontBold);
         imgImage.setImageBitmap(m_ConcertList.get(position).getImage());
         txtLocation.setText(m_ConcertList.get(position).getLocation());
+        txtLocation.setTypeface(fontRegular);
         txtDescription.setText(m_ConcertList.get(position).getDescription());
+        txtDescription.setTypeface(fontRegular);
         txtDate.setText(m_ConcertList.get(position).getDate());
+        txtDate.setTypeface(fontRegular);
         txtTime.setText(m_ConcertList.get(position).getTime());
+        txtTime.setTypeface(fontRegular);
 
         LinearLayout concertContainer = (LinearLayout) convertView.findViewById(R.id.concert_container);
         concertContainer.setOnClickListener(new View.OnClickListener() {
