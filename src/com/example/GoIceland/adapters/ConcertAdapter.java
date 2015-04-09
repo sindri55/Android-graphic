@@ -60,10 +60,12 @@ public class ConcertAdapter extends BaseAdapter {
 
         txtTitle.setText(m_ConcertList.get(position).getTitle());
         imgImage.setImageBitmap(m_ConcertList.get(position).getImage());
-        txtLocation.setText(m_ConcertList.get(position).getLocation());
-        txtDescription.setText(m_ConcertList.get(position).getDescription());
-        txtDate.setText(m_ConcertList.get(position).getDate());
-        txtTime.setText(m_ConcertList.get(position).getTime());
+        txtLocation.setText("City: " + m_ConcertList.get(position).getLocation());
+        txtDescription.setText("Location: " + m_ConcertList.get(position).getDescription());
+        txtDate.setText("Date: " + m_ConcertList.get(position).getDate());
+        txtTime.setText("Time: " + m_ConcertList.get(position).getTime());
+
+
 
         LinearLayout concertContainer = (LinearLayout) convertView.findViewById(R.id.concert_container);
         concertContainer.setOnClickListener(new View.OnClickListener() {
