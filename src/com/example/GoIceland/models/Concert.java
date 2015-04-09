@@ -2,13 +2,15 @@ package com.example.GoIceland.models;
 
 import android.graphics.Bitmap;
 
+import com.example.GoIceland.enums.LocationEnum;
+
 /**
  * Created by Hannes on 9.4.2015.
  */
 public class Concert {
 
     private String m_Title;
-    private String m_Location;
+    private int m_Location;
     private String m_Description;
     private String m_Date;
     private String m_Time;
@@ -17,7 +19,7 @@ public class Concert {
     public Concert() {
     }
 
-    public Concert(String title, String location, String description, String date, String time, Bitmap image) {
+    public Concert(String title,  int location, String description, String date, String time, Bitmap image) {
         this.m_Title = title;
         this.m_Location = location;
         this.m_Description = description;
@@ -34,9 +36,6 @@ public class Concert {
         this.m_Title = title;
     }
 
-    public void setLocation(String locationId) {
-        this.m_Location = locationId;
-    }
 
     public String getDate() {
         return m_Date;
@@ -70,6 +69,12 @@ public class Concert {
         this.m_Description = description;
     }
 
+    public int getLocationId() {
+        return m_Location;
+    }
 
+    public String getLocation(){
+        return LocationEnum.getString(m_Location);
+    }
 
 }

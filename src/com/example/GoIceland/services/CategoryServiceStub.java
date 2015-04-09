@@ -29,7 +29,6 @@ public class CategoryServiceStub implements CategoryService {
         Bitmap motorbikeImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_motorbike);
         Bitmap mugImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_mug);
         Bitmap musicImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_music);
-        Bitmap homeImage = BitmapFactory.decodeResource(m_Context.getResources(), R.drawable.ic_home);
 
 
 

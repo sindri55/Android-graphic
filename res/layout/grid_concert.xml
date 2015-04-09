@@ -13,6 +13,8 @@
             android:visibility="gone"
             android:background="@drawable/concert_details_container_selector">
 
+
+
         <TextView
             android:id="@+id/concert_location"
             android:text="Location"

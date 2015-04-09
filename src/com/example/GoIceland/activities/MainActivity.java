@@ -17,14 +17,9 @@ import android.widget.ListView;
 import com.example.GoIceland.R;
 import com.example.GoIceland.adapters.NavDrawerListAdapter;
 import com.example.GoIceland.enums.FragmentEnum;
-import com.example.GoIceland.fragments.ArtShowsFragment;
-import com.example.GoIceland.fragments.BarsFragment;
 import com.example.GoIceland.fragments.ConcertFragment;
-import com.example.GoIceland.fragments.FlyToursFragment;
 import com.example.GoIceland.fragments.HomeFragment;
-import com.example.GoIceland.fragments.MotorSportsFragment;
 import com.example.GoIceland.fragments.SettingsFragment;
-import com.example.GoIceland.fragments.SportEventFragment;
 import com.example.GoIceland.models.NavDrawerItem;
 import com.example.GoIceland.services.NavDrawerItemService;
 import com.example.GoIceland.services.NavDrawerItemServiceStub;
@@ -109,7 +104,7 @@ public class MainActivity extends Activity {
             case FragmentEnum.ConcertFragment:
                 fragment = new ConcertFragment();
                 break;
-            case FragmentEnum.FlyToursFragment:
+            /*case FragmentEnum.FlyToursFragment:
                 fragment = new FlyToursFragment();
                 break;
             case FragmentEnum.SportEventFragment:
@@ -124,8 +119,7 @@ public class MainActivity extends Activity {
             case FragmentEnum.ArtShowsFragment:
                 fragment = new ArtShowsFragment();
                 break;
-
-
+*/
 
 
             default:
