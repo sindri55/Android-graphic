@@ -34,12 +34,8 @@ public class Concert {
         this.m_Title = title;
     }
 
-    public String getLocation() {
-        return m_Location;
-    }
-
-    public void setLocation(String location) {
-        this.m_Location = location;
+    public void setLocation(String locationId) {
+        this.m_Location = locationId;
     }
 
     public String getDate() {
@@ -73,4 +69,7 @@ public class Concert {
     public void setDescription(String description) {
         this.m_Description = description;
     }
+
+
+
 }

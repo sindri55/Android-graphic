@@ -17,4 +17,18 @@
     <dimen name="concert_description_padding">@dimen/stgv_description_padding</dimen>
     <dimen name="concert_description_text_size">@dimen/stgv_description_text_size</dimen>
 
+    <!-- Settings -->
+    <dimen name="settings_text_padding">5dp</dimen>
+    <dimen name="settings_text_size">20dp</dimen>
+
+    <dimen name="settings_layout_padding">15dp</dimen>
+    <dimen name="settings_location_text_padding">@dimen/settings_text_padding</dimen>
+    <dimen name="settings_location_text_size">@dimen/settings_text_size</dimen>
+    <dimen name="settings_date_picker_text_padding">@dimen/settings_text_padding</dimen>
+    <dimen name="settings_date_picker_text_size">@dimen/settings_text_size</dimen>
+    <dimen name="settings_date_picker_month_text_padding">@dimen/settings_text_padding</dimen>
+    <dimen name="settings_date_picker_month_text_size">@dimen/settings_text_size</dimen>
+    <dimen name="settings_date_picker_day_text_padding">@dimen/settings_text_padding</dimen>
+    <dimen name="settings_date_picker_day_text_size">@dimen/settings_text_size</dimen>
+
 </resources>

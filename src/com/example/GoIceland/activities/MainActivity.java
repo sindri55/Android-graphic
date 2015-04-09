@@ -23,6 +23,7 @@ import com.example.GoIceland.fragments.ConcertFragment;
 import com.example.GoIceland.fragments.FlyToursFragment;
 import com.example.GoIceland.fragments.HomeFragment;
 import com.example.GoIceland.fragments.MotorSportsFragment;
+import com.example.GoIceland.fragments.SettingsFragment;
 import com.example.GoIceland.fragments.SportEventFragment;
 import com.example.GoIceland.models.NavDrawerItem;
 import com.example.GoIceland.services.NavDrawerItemService;
@@ -168,6 +169,9 @@ public class MainActivity extends Activity {
         // Handle action bar actions click
         switch (item.getItemId()) {
             case R.id.action_settings:
+                Fragment settingsFragment = new SettingsFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.frame_container, settingsFragment).commit();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
