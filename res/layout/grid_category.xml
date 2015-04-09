@@ -16,7 +16,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"/>
 
-        <TextView
+        <assets.EatFoodyTextView
                 android:id="@+id/category_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
