@@ -9,7 +9,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/concert_container">
+            android:background="@drawable/concert_container_selector">
 
         <ImageView
                 android:id="@+id/concert_image"
@@ -22,14 +22,18 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/concert_title_padding"
                 android:textSize="@dimen/concert_title_text_size"
-                android:gravity="center"/>
+                android:textColor="@color/concert_title_text_color"
+                android:gravity="center"
+                android:background="@drawable/concert_title_selector"/>
 
         <TextView
                 android:id="@+id/concert_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/concert_description_padding"
-                android:textSize="@dimen/concert_description_text_size"/>
+                android:textSize="@dimen/concert_description_text_size"
+                android:textColor="@color/concert_description_text_color"
+                android:background="@drawable/concert_description_selector"/>
 
     </LinearLayout>
 

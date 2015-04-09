@@ -3,5 +3,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
        android:shape="rectangle">
     <solid
-            android:color="@color/concert_container_bg"/>
+            android:color="@color/concert_description_bg_pressed"/>
 </shape>
